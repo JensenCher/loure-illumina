@@ -4,6 +4,7 @@ import ClientOnly from "@/components/ClientOnly";
 import Providers from "@/components/Providers";
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/Toast";
+import Nav from "@/components/navbar/Nav";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -23,12 +24,29 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ClientOnly>
           <Providers>
             <Toaster position="bottom-right" />
-            {children}
+            <Nav />
+            {/* Allow for more height on Mobile screens */}
+            <div className="relative pb-20 overflow-hidden">{children}</div>
           </Providers>
         </ClientOnly>
-        {/* Allow for more height on Mobile screens */}
-        <div className="h-40 md:hidden"></div>
       </body>
     </html>
   );
 }
+
+// import "../globals.css";
+// import Nav from "@/components/navbar/Nav";
+// import { Roboto } from "@next/font/google";
+// import ClientOnly from "@/components/ClientOnly";
+// import ToasterProvider from "../../providers/ToasterProvider";
+
+// export default function HomeLayout({ children }: { children: React.ReactNode }) {
+//   return (
+//     <>
+//       <Nav />
+//       <ToasterProvider />
+//       {/* <Modal /> */}
+//       <div className="relative pb-20 overflow-hidden">{children}</div>
+//     </>
+//   );
+// }

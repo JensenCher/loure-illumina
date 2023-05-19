@@ -1,11 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["drive.google.com", "mynihonblog.files.wordpress.com", "googleusercontent.com"],
+    domains: ["drive.google.com", "mynihonblog.files.wordpress.com"],
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "*.googleusercontent.com",
+        hostname: "*docs.googleusercontent.com",
         port: "",
         pathname: "**",
       },

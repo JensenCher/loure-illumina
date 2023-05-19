@@ -51,12 +51,12 @@ export default async function Home() {
             {projects.map((project) => (
               <ProjectCard key={project._id} data={project} disabled={project.url ? true : false} />
             ))}
-            <Image
+            {/* <Image
               fill
               alt="Project"
               src={"https://drive.google.com/uc?export=view&id=1eMjd0qI2S1_o6dVgyvEPfXYwfSM-Rf8i"}
               className="object-cover h-full w-full group-hover:scale-110 transition"
-            />
+            /> */}
           </div>
         </div>
         <div className="h-96 bg-orange-500"></div>

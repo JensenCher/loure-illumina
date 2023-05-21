@@ -6,6 +6,7 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --nav-item-drop-shadow: 255 99 71;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -36,5 +37,19 @@ body {
 @media (min-width: 1024px) {
   .gradient-background {
     background: none;
+  }
+}
+
+@layer utilities {
+  .nav-item {
+    @apply relative font-bold;
+  }
+
+  .nav-item::after {
+    @apply content-[''] bg-slate-900 dark:bg-slate-400 dark:hover:bg-slate-100 absolute h-[2px] w-[0] left-[10%] -bottom-[5px] rounded-xl duration-300;
+  }
+
+  .nav-item:hover::after {
+    @apply w-[80%];
   }
 }

@@ -9,9 +9,9 @@ const Logo = () => {
   const router = useRouter();
 
   return (
-    <Link href="/" className={"h-12 " + buttonVariants({ variant: "link" })}>
-      <Image alt="Logo" className="md:block cursor-pointer dark:hidden" height="100" width="100" src="/images/loure_illumina_logo.png" />
-      <Image alt="Logo" className="hidden dark:block sm:dark:block cursor-pointer" height="100" width="100" src="/images/loure_illumina_logo_dark.png" />
+    <Link href="/home" className={"h-12 " + buttonVariants({ variant: "link" })}>
+      <Image alt="Logo" className="block dark:hidden" height="100" width="100" src="/images/loure_illumina_logo.png" />
+      <Image alt="Logo" className="hidden dark:block cursor-pointer" height="100" width="100" src="/images/loure_illumina_logo_dark.png" />
     </Link>
   );
 };

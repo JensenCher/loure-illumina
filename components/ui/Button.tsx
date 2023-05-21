@@ -30,11 +30,12 @@ export const buttonVariants = cva(
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {
   isLoading?: boolean;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-const Button: React.FC<ButtonProps> = forwardRef<HTMLButtonElement, ButtonProps>(({ className, children, variant, isLoading, size, ...props }, ref) => {
+const Button: React.FC<ButtonProps> = forwardRef<HTMLButtonElement, ButtonProps>(({ className, onClick, children, variant, isLoading, size, ...props }, ref) => {
   return (
-    <button className={cn(buttonVariants({ variant, size, className }))} ref={ref} disabled={isLoading} {...props}>
+    <button className={cn(buttonVariants({ variant, size, className }))} onClick={onClick} ref={ref} disabled={isLoading} {...props}>
       {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
       {children}
     </button>

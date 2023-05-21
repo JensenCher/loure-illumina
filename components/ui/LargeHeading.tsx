@@ -4,12 +4,12 @@ import { cva, VariantProps } from "class-variance-authority";
 import { forwardRef, HTMLAttributes } from "react";
 import { cn } from "../../lib/utils";
 
-const headingVariants = cva("text-black dark:text-white text-center lg:text-left font-extrabold leading-tight tracking-tighter", {
+const headingVariants = cva("text-black dark:text-white text-center md:text-left font-extrabold leading-tight tracking-tighter", {
   variants: {
     size: {
-      default: "text-4xl md:text-5xl lg:text-6xl",
-      sm: "text-2xl md:text-3xl lg:text-4xl",
-      lg: "text-5xl md:text-6xl lg:text-7xl",
+      default: "text-4xl md:text-5xl md:text-6xl",
+      sm: "text-2xl md:text-3xl md:text-4xl",
+      md: "text-5xl md:text-6xl md:text-7xl",
     },
   },
   defaultVariants: {

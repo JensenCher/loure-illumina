@@ -46,6 +46,8 @@ import Container from "@/components/Container";
 import Logo from "./Logo";
 import Search from "./Search";
 import UserMenu from "./UserMenu";
+import NavItem from "./NavItem";
+import NavItemContainer from "./NavItemContainer";
 
 export default function Nav() {
   // Change Nav color when hover
@@ -64,15 +66,18 @@ export default function Nav() {
   return (
     <div
       className={
-        " w-full z-50 transition duration-300 backdrop-blur-sm top-0 left-0 right-0 border-slate-300 dark:border-slate-700 " // +
+        "absolute w-full z-50 transition duration-300 backdrop-blur-sm top-0 left-0 right-0 border-slate-300 dark:border-slate-700 " // +
         // (navbar ? "dark:bg-white/75 bg-slate-500/75 shadow-sm" : "bg-white/75 dark:bg-slate-900/50 shadow-sm") // +
         // "fixed backdrop-blur-sm bg-white/75 dark:bg-slate-900/75 z-50 top-0 left-0 right-0 h-20 border-b border-slate-300 dark:border-slate-700 shadow-sm flex items-center justify-between"
       }
     >
       <div className="py-4">
         <Container>
-          <div className="flex flex-row items-center justify-between gap-3 md:gap-0">
-            <Logo />
+          <div className="flex flex-row items-center justify-between md:gap-0">
+            <div className="flex flex-row items-center justify-between gap-10">
+              <Logo />
+              <NavItemContainer isSidebar={false} />
+            </div>
             {/* <Search /> */}
             <UserMenu />
           </div>

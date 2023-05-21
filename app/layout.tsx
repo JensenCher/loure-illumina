@@ -1,15 +1,23 @@
 import "./globals.css";
-import { Roboto } from "@next/font/google";
-import ClientOnly from "@/components/ClientOnly";
-import Providers from "@/components/Providers";
+import { Roboto, Cinzel_Decorative, Raleway } from "@next/font/google";
 import { cn } from "@/lib/utils";
-import { Toaster } from "@/components/ui/Toast";
-import Nav from "@/components/navbar/Nav";
 
 const roboto = Roboto({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["400", "700", "900"],
   variable: "--font-roboto",
+});
+
+const cinzel_decorative = Cinzel_Decorative({
+  subsets: ["latin"],
+  weight: ["400", "700", "900"],
+  variable: "--header-font",
+});
+
+const raleway = Raleway({
+  subsets: ["latin"],
+  weight: ["400", "700", "900"],
+  variable: "--body-font",
 });
 
 export const metadata = {
@@ -19,17 +27,8 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={cn("bg-gray-200 text-slate-900 antialiased", roboto.variable)}>
-      <body className="min-h-screen bg-slate-50 dark:bg-slate-900 antialiased">
-        <ClientOnly>
-          <Providers>
-            <Toaster position="bottom-right" />
-            <Nav />
-            {/* Allow for more height on Mobile screens */}
-            <div className="relative pb-20 overflow-hidden">{children}</div>
-          </Providers>
-        </ClientOnly>
-      </body>
+    <html lang="en" className={cn("bg-gray-200 text-slate-900 antialiased", cinzel_decorative.variable, raleway.variable)}>
+      <body className="min-h-screen bg-slate-50 dark:bg-slate-900 antialiased font-body">{children}</body>
     </html>
   );
 }

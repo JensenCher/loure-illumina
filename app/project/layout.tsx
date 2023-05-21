@@ -1,0 +1,26 @@
+import "../globals.css";
+import ClientOnly from "@/components/ClientOnly";
+import Providers from "@/components/Providers";
+import { Toaster } from "@/components/ui/Toast";
+import Nav from "@/components/navbar/Nav";
+
+export const metadata = {
+  title: "Loure Illumina",
+  description: "Experience the magic of tarot through a medieval lens, offering guidance and enchantment.",
+};
+
+export default function HomeLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <ClientOnly>
+      <Providers>
+        <Toaster position="bottom-right" />
+        <Nav />
+        {/* Allow for more height on Mobile screens */}
+        <div className="relative pb-20 overflow-hidden">{children}</div>
+      </Providers>
+    </ClientOnly>
+  );
+}
+
+// below md: will display mobile version
+// md: and above will display desktop version

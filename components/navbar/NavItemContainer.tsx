@@ -13,6 +13,7 @@ interface NavItemContainerProps {
 const NavItemContainer = forwardRef<HTMLDivElement, NavItemContainerProps>(({ isSidebar, className, ...props }, ref) => {
   return (
     <>
+      {/* TODO: Sidebar for Darkmode */}
       {isSidebar ? (
         <div className={"flex flex-col items-center gap-2.5 font-medium relative ml-10 text-slate-900 py-2 " + className}>
           <div className="w-full border-b border-slate-300 py-3 flex items-center justify-center">

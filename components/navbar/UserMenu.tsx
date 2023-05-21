@@ -11,16 +11,15 @@ import Icons from "../Icons";
 import Button from "@/ui/Button";
 
 const UserMenu = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   let menuRef = useRef<HTMLDivElement>(null);
 
-  const [showModal, setShowModal] = useState(false);
   return (
     <div className="" ref={menuRef}>
       <div className="flex flex-row items-center">
         {/* When mobile screen */}
-        <div className="md:hidden flex flex-row items-center justify-center">
+        <div className="md:hidden flex flex-row items-center justify-center gap-2">
           <ThemeToggle />
           <Button
             variant="ghost"
@@ -29,7 +28,7 @@ const UserMenu = () => {
               setIsOpen(!isOpen);
             }}
           >
-            <Icons.Menu className="scale-100 transition-all text-slate-900 hover:scale-110 hover:text-slate-900 dark:-rotate-90 dark:scale-0 dark:text-slate-400 dark:hover:text-slate-100" />
+            <Icons.Menu className="scale-100 transition-all text-slate-900 hover:scale-110 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100" />
           </Button>
         </div>
         {/* When large screens */}

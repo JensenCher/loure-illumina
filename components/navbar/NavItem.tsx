@@ -28,4 +28,6 @@ const NavItem = forwardRef<HTMLDivElement, NavItemProps>(({ className, size, par
   );
 });
 
+NavItem.displayName = "Nav Item";
+
 export default NavItem;

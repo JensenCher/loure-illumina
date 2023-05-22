@@ -20,14 +20,13 @@ const NavItemContainer = forwardRef<HTMLDivElement, NavItemContainerProps>(({ is
             <p>Menu</p>
           </div>
           <div>
-            <ul>
-              <li>
+            <ul className="whitespace-pre px-2.5 py-1 flex flex-col gap-1 font-medium overflow-x-hidden scrollbar-thin scrollbar-track-white scrollbar-thumb-slate-100">
+              <li className="text-center">
                 <Link href="/home">TAROT ANGELUS</Link>
               </li>
-              <li>2</li>
-              <li>3</li>
-              <li>4</li>
-              <li>5</li>
+              <li className="text-center">Lorem ipsum dolor sit amet.</li>
+              <li className="text-center">4</li>
+              <li className="text-center">5</li>
             </ul>
           </div>
         </div>

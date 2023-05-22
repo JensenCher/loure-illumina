@@ -31,21 +31,20 @@ const NavSidebar = forwardRef<HTMLDivElement, NavSidebarProps>(({ isSidebar, isO
 
   return (
     <div>
-      <div className={`md:hidden fixed inset-0 h-screen z-[998] bg-black/50 ${isOpen ? "block" : "hidden"}`} onClick={onClick}></div>
+      <div className={`md:hidden fixed inset-0 h-[3000px] z-[998] bg-black/50 ${isOpen ? "block" : "hidden"}`} onClick={onClick}></div>
       <motion.div
         variants={sidebar_animation}
         animate={isOpen ? "open" : "closed"}
         className={cn([
-          `${
-            isSidebar ? "" : "hidden"
-          }  absolute right-0 top-0 bg-white text-gray shadow-xl z-[999] w-[16rem] max-w-[16rem] h-screen overflow-hidden md:hidden transition duration-300`,
+          `${isSidebar ? "" : "hidden"}  absolute right-0 top-0 bg-white text-gray shadow-xl z-[999] w-[16rem] max-w-[16rem] h-[105vh] 
+            overflow-x-hidden scrollbar-thin scrollbar-track-slate-700 scrollbar-thumb-slate-300 md:hidden transition duration-300 rounded-bl-2xl`,
         ])}
         ref={ref}
         {...props}
       >
         {/* Close sidebar btn */}
         <div className="absolute w-fit h-fit z-50 left-2 top-2 cursor-pointer text-black" onClick={onClick}>
-          <IoIosArrowForward size={25} rotate={90} />
+          <IoIosArrowForward size={25} rotate={90} title="Close" />
         </div>
         {/* Sidebar Items */}
         <NavItemContainer isSidebar={true} />

@@ -22,7 +22,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ data, onAction, disabled, act
       <div className="flex flex-col gap-3 w-60">
         <div className="h-96 w-full overflow-hidden relative rounded-xl items-end">
           {data.url ? (
-            <Image fill alt="Project" src={data.url} className="object-cover h-full w-full group-hover:scale-110 transition duration-300" />
+            <Image
+              fill
+              alt="Project"
+              src={data.url}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="object-cover h-auto w-auto group-hover:scale-110 transition duration-300"
+            />
           ) : (
             <div className="object-cover h-full w-full bg-white group-hover:scale-110 transition duration-300" />
           )}

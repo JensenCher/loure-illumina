@@ -28,7 +28,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={cn("bg-gray-200 text-slate-900 antialiased", cinzel_decorative.variable, raleway.variable)}>
-      <body className="min-h-screen bg-slate-50 dark:bg-slate-900 antialiased font-body">{children}</body>
+      <body className="min-h-screen bg-slate-50 dark:bg-slate-900 antialiased font-body vsc-initialized">{children}</body>
     </html>
   );
 }

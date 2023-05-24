@@ -9,7 +9,7 @@ export const metadata = {
   description: "Experience the magic of tarot through a medieval lens, offering guidance and enchantment.",
 };
 
-export default function HomeLayout({ children }: { children: React.ReactNode }) {
+export default function TarotAngelusLayout({ children }: { children: React.ReactNode }) {
   return (
     <ClientOnly>
       <Providers>
@@ -26,20 +26,3 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
 
 // below md: will display mobile version
 // md: and above will display desktop version
-
-// import "../globals.css";
-// import Nav from "@/components/navbar/Nav";
-// import { Roboto } from "@next/font/google";
-// import ClientOnly from "@/components/ClientOnly";
-// import ToasterProvider from "../../providers/ToasterProvider";
-
-// export default function HomeLayout({ children }: { children: React.ReactNode }) {
-//   return (
-//     <>
-//       <Nav />
-//       <ToasterProvider />
-//       {/* <Modal /> */}
-//       <div className="relative pb-20 overflow-hidden">{children}</div>
-//     </>
-//   );
-// }

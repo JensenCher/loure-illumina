@@ -15,33 +15,31 @@ const NavItemContainer = forwardRef<HTMLDivElement, NavItemContainerProps>(({ is
     <>
       {/* TODO: Sidebar for Darkmode */}
       {isSidebar ? (
-        <div className={"flex flex-col items-center gap-2.5 font-medium relative ml-10 text-slate-900 py-2 " + className}>
-          <div className="w-full border-b border-slate-300 py-3 flex items-center justify-center">
-            <p>Menu</p>
+        <div className={"flex flex-col items-center gap-2.5 font-medium relative ml-10 mr-6 text-slate-200 dark:text-slate-900 py-2 " + className}>
+          <div className="w-full border-b border-slate-300 dark:border-slate-500 py-2 flex items-center justify-center">
+            <p className="text-2xl">Menu</p>
           </div>
           <div>
-            <ul className="whitespace-pre px-2.5 py-1 flex flex-col gap-1 font-medium overflow-x-hidden scrollbar-thin scrollbar-track-white scrollbar-thumb-slate-100">
-              <li className="text-center">
-                <Link href="/home">TAROT ANGELUS</Link>
+            <ul className="whitespace-pre px-2.5 flex flex-col font-medium overflow-x-hidden scrollbar-thin scrollbar-track-white scrollbar-thumb-slate-100">
+              <li className="py-1 px-3 text-center rounded-md hover:bg-slate-200/30 dark:hover:bg-slate-900/10 transition duration-300 border-b-2 border-slate-600 dark:border-slate-200">
+                <Link href="/tarot_angelus" className="font-header font-bold text-sm" title="Tarot Angelus">
+                  TAROT ANGELUS
+                </Link>
               </li>
-              <li className="text-center">Lorem ipsum dolor sit amet.</li>
-              <li className="text-center">4</li>
-              <li className="text-center">5</li>
+              <li className="py-1 px-3 text-center rounded-md hover:bg-slate-200/30 dark:hover:bg-slate-900/10 transition duration-300">
+                <Link href="/tarot_angelus" className="font-header font-bold text-sm" title="Tarot Angelus">
+                  TAROT ANGELUS
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
       ) : (
-        <div className="border-l-2 border-amber-600/40 hidden md:flex flex-row items-center justify-between text-black gap-3 px-3 sm:px-5 py-3">
-          <NavItem className="px-3 sm:px-5 font-header font-bold" paragraphClass="dark:hover:drop-shadow-navitem-slate transition duration-300">
+        <div className="border-l-2 border-amber-600/40 hidden md:flex flex-row items-center justify-between text-black gap-1 px-3 sm:px-5 py-3">
+          <NavItem href={"/tarot_angelus"} className="px-3 sm:px-5 font-header font-bold" paragraphClass="dark:hover:drop-shadow-navitem-slate transition duration-300">
             TAROT ANGELUS
           </NavItem>
-          <NavItem className="px-3 sm:px-5 font-header font-bold" paragraphClass="dark:hover:drop-shadow-navitem-slate transition duration-300">
-            TAROT ANGELUS
-          </NavItem>
-          <NavItem className="px-3 sm:px-5 font-header font-bold" paragraphClass="dark:hover:drop-shadow-navitem-slate transition duration-300">
-            TAROT ANGELUS
-          </NavItem>
-          <NavItem className="px-3 sm:px-5 font-header font-bold" paragraphClass="dark:hover:drop-shadow-navitem-slate transition duration-300">
+          <NavItem href={"/tarot_angelus"} className="px-3 sm:px-5 font-header font-bold" paragraphClass="dark:hover:drop-shadow-navitem-slate transition duration-300">
             TAROT ANGELUS
           </NavItem>
         </div>

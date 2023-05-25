@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Roboto, Cinzel_Decorative, Raleway } from "@next/font/google";
 import { cn } from "@/lib/utils";
+import Footer from "@/components/footer/Footer";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -28,7 +29,10 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={cn("bg-gray-200 text-slate-900 antialiased", cinzel_decorative.variable, raleway.variable)}>
-      <body className="min-h-screen bg-slate-50 dark:bg-slate-900 antialiased font-body vsc-initialized">{children}</body>
+      <body className="min-h-screen bg-slate-50 dark:bg-slate-900 antialiased font-body vsc-initialized">
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

@@ -9,15 +9,15 @@ import Paragraph from "@/ui/Paragraph";
 import Nav from "@/components/navbar/Nav";
 
 export default async function TarotAngelusHome() {
-  // const projects = await getProjects();
+  const projects = await getProjects();
 
-  // if (projects.length === 0) {
-  //   return (
-  //     <ClientOnly>
-  //       <EmptyState showReset />
-  //     </ClientOnly>
-  //   );
-  // }
+  if (projects.length === 0) {
+    return (
+      <ClientOnly>
+        <EmptyState showReset />
+      </ClientOnly>
+    );
+  }
 
   return (
     <ClientOnly>
@@ -37,7 +37,7 @@ export default async function TarotAngelusHome() {
         </div>
       </div>
       <Container>
-        {/* <div className="p-3">
+        <div className="p-3 max-w-[1536px] m-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5 place-items-center">
             {projects.map((project) => (
               <ProjectCard key={project._id} data={project} disabled={project.url ? true : false} />
@@ -49,7 +49,7 @@ export default async function TarotAngelusHome() {
               <ProjectCard key={project._id} data={project} disabled={project.url ? true : false} />
             ))}
           </div>
-        </div> */}
+        </div>
         <div className="h-96 bg-orange-500"></div>
         <div className="h-96 bg-purple-500"></div>
       </Container>

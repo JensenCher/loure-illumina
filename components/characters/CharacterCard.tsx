@@ -1,30 +1,26 @@
 "use client";
 
-import { Project } from "@/types/Project";
+import { Character } from "@/types/Character";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
-import HeartButton from "../HeartButtons";
 import Link from "next/link";
 
-interface ProjectCardProps {
-  data: Project;
+interface CharacterCardProps {
+  data: Character;
   onAction?: (id: string) => void;
   disabled?: boolean;
   actionLabel?: string;
   actionId?: string;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ data, onAction, disabled, actionLabel, actionId }) => {
-  const router = useRouter();
-
+const CharacterCard: React.FC<CharacterCardProps> = ({ data, onAction, disabled, actionLabel, actionId }) => {
   return (
-    <Link href={`/project/${data._id}`} className="block col-span-1 cursor-pointer group">
+    <Link href={`/${data.category.slug}/${data.slug}`} className="block col-span-1 cursor-pointer group">
       <div className="flex flex-col gap-3 w-60">
         <div className="h-96 w-full overflow-hidden relative rounded-xl items-end">
           {data.url ? (
             <Image
               fill
-              alt="Project"
+              alt="Character"
               src={data.url}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className="object-cover h-auto w-auto group-hover:scale-110 transition duration-300"
@@ -42,7 +38,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ data, onAction, disabled, act
             <div className="absolute bottom-0 pb-4 group-hover">
               <div className="font-semibold text-lg px-1">
                 <span className="font-header">{data?.name}</span>
-                <span className="block text-sm">{data?.slug}</span>
+                <span className="block text-sm">{data?.title}</span>
               </div>
             </div>
           </div>
@@ -56,4 +52,4 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ data, onAction, disabled, act
   );
 };
 
-export default ProjectCard;
+export default CharacterCard;

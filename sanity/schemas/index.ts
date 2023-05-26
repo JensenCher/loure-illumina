@@ -1,5 +1,6 @@
-import project from "./project-schema";
+import character from "./character-schema";
+import category from "./category-schema";
 
-const schemas = [project];
+const schemas = [character, category];
 
 export default schemas;

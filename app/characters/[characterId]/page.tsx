@@ -1,25 +1,25 @@
 import Container from "@/components/Container";
-import { getProjectById } from "@/sanity/sanity-utils";
+import { getCharacterById } from "@/sanity/sanity-utils";
 import Image from "next/image";
 
 interface IParams {
-  projectId?: string;
+  characterId?: string;
 }
 
-const ProjectPage = async ({ params }: { params: IParams }) => {
-  const project = await getProjectById(params.projectId as string);
+const CharacterPage = async ({ params }: { params: IParams }) => {
+  const character = await getCharacterById(params.characterId as string);
   return (
     <Container>
       <div className="px-10 max-w-7xl m-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-10">
-          <div key={project._id} className="flex justify-center py-5">
-            {project.url ? (
-              <Image width={375} height={500} className="object-contain" alt="Project" src={project.url} />
+          <div key={character._id} className="flex justify-center py-5">
+            {character.url ? (
+              <Image width={375} height={500} className="object-contain" alt="Character" src={character.url} />
             ) : (
               <div className="object-cover h-full w-full bg-white group-hover:scale-110 transition" />
             )}
             {/* <Image /> */}
-            {/* {project.name}{" "} */}
+            {/* {character.name}{" "} */}
           </div>
           <div className="py-5">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi harum dicta iste distinctio ducimus, corrupti odit accusamus? Reiciendis praesentium quo aut error
@@ -32,4 +32,4 @@ const ProjectPage = async ({ params }: { params: IParams }) => {
   );
 };
 
-export default ProjectPage;
+export default CharacterPage;

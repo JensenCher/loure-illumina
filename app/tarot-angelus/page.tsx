@@ -1,17 +1,17 @@
 import Image from "next/image";
-import { getProjectById, getProjects } from "@/sanity/sanity-utils";
+import { getCharacters } from "@/sanity/sanity-utils";
 import ClientOnly from "@/components/ClientOnly";
 import Container from "@/components/Container";
 import EmptyState from "@/components/EmptyState";
-import ProjectCard from "@/components/projects/ProjectCard";
+import CharacterCard from "@/components/characters/CharacterCard";
 import LargeHeading from "@/components/ui/LargeHeading";
 import Paragraph from "@/ui/Paragraph";
 import Nav from "@/components/navbar/Nav";
 
 export default async function TarotAngelusHome() {
-  const projects = await getProjects();
+  const characters = await getCharacters();
 
-  if (projects.length === 0) {
+  if (characters.length === 0) {
     return (
       <ClientOnly>
         <EmptyState showReset />
@@ -39,14 +39,14 @@ export default async function TarotAngelusHome() {
       <Container>
         <div className="p-3 max-w-[1536px] m-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5 place-items-center">
-            {projects.map((project) => (
-              <ProjectCard key={project._id} data={project} disabled={project.url ? true : false} />
+            {characters.map((char) => (
+              <CharacterCard key={char._id} data={char} disabled={char.url ? true : false} />
             ))}
-            {projects.map((project) => (
-              <ProjectCard key={project._id} data={project} disabled={project.url ? true : false} />
+            {characters.map((char) => (
+              <CharacterCard key={char._id} data={char} disabled={char.url ? true : false} />
             ))}
-            {projects.map((project) => (
-              <ProjectCard key={project._id} data={project} disabled={project.url ? true : false} />
+            {characters.map((char) => (
+              <CharacterCard key={char._id} data={char} disabled={char.url ? true : false} />
             ))}
           </div>
         </div>

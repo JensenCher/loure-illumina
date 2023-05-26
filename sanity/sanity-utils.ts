@@ -1,4 +1,4 @@
-import { Project } from "@/types/Project";
+import { Character } from "@/types/Character";
 import { createClient, groq } from "next-sanity";
 
 const client = createClient({
@@ -8,31 +8,73 @@ const client = createClient({
   useCdn: true,
 });
 
-export async function getProjects(): Promise<Project[]> {
+export async function getCharacters(): Promise<Character[]> {
   return client.fetch(
-    groq`*[_type=="project"]{
+    groq`*[_type=="character"]{
         _id,
         _createdAt,
-        name,
+        title,
         "slug": slug.current,
+        name,
+        race,
+        description,
         "image": image.asset->url,
         url,
-        content
+        content,
+        category->{
+          _id,
+          title,
+          "slug": slug.current,
+          description,
+        },
     }`
   );
 }
 
-export async function getProjectById(id: string): Promise<Project> {
+export async function getCharacterById(id: string): Promise<Character> {
   return client.fetch(
-    groq`*[_type=="project" && _id==$id][0]{
+    groq`*[_type=="character" && _id==$id][0]{
         _id,
         _createdAt,
-        name,
+        title,
         "slug": slug.current,
+        name,
+        race,
+        description,
         "image": image.asset->url,
         url,
-        content
+        content,
+        category->{
+          _id,
+          title,
+          "slug": slug.current,
+          description,
+        },
     }`,
     { id }
+  );
+}
+
+export async function getCharacterBySlug(slug: string): Promise<Character> {
+  return client.fetch(
+    groq`*[_type=="character" && slug.current==$slug][0]{
+        _id,
+        _createdAt,
+        title,
+        "slug": slug.current,
+        name,
+        race,
+        description,
+        "image": image.asset->url,
+        url,
+        content,
+        category->{
+          _id,
+          title,
+          "slug": slug.current,
+          description,
+        },
+    }`,
+    { slug }
   );
 }

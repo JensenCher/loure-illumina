@@ -1,23 +1,23 @@
 import Image from "next/image";
-import { getProjectById, getProjects } from "@/sanity/sanity-utils";
+import { getCharacterById, getCharacters } from "@/sanity/sanity-utils";
 import ClientOnly from "@/components/ClientOnly";
 import Container from "@/components/Container";
 import EmptyState from "@/components/EmptyState";
-import ProjectCard from "@/components/projects/ProjectCard";
+import CharacterCard from "@/components/characters/CharacterCard";
 import LargeHeading from "@/components/ui/LargeHeading";
 import Paragraph from "@/ui/Paragraph";
 import Nav from "@/components/navbar/Nav";
 
 export default async function Home() {
-  // const projects = await getProjects();
+  const characters = await getCharacters();
 
-  // if (projects.length === 0) {
-  //   return (
-  //     <ClientOnly>
-  //       <EmptyState showReset />
-  //     </ClientOnly>
-  //   );
-  // }
+  if (characters.length === 0) {
+    return (
+      <ClientOnly>
+        <EmptyState showReset />
+      </ClientOnly>
+    );
+  }
 
   return (
     <ClientOnly>
@@ -42,19 +42,19 @@ export default async function Home() {
         </div>
       </div>
       <Container>
-        {/* <div className="p-3">
+        <div className="p-3">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5 place-items-center">
-            {projects.map((project) => (
-              <ProjectCard key={project._id} data={project} disabled={project.url ? true : false} />
+            {characters.map((character) => (
+              <CharacterCard key={character._id} data={character} disabled={character.url ? true : false} />
             ))}
-            {projects.map((project) => (
-              <ProjectCard key={project._id} data={project} disabled={project.url ? true : false} />
+            {characters.map((character) => (
+              <CharacterCard key={character._id} data={character} disabled={character.url ? true : false} />
             ))}
-            {projects.map((project) => (
-              <ProjectCard key={project._id} data={project} disabled={project.url ? true : false} />
+            {characters.map((character) => (
+              <CharacterCard key={character._id} data={character} disabled={character.url ? true : false} />
             ))}
           </div>
-        </div> */}
+        </div>
         <div className="h-96 bg-orange-500"></div>
         <div className="h-96 bg-purple-500"></div>
       </Container>

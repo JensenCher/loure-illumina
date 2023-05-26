@@ -1,18 +1,24 @@
-const project = {
-  name: "project",
-  title: "Projects",
+const category = {
+  name: "category",
+  title: "Categories",
   type: "document",
   fields: [
     {
-      name: "name",
-      title: "Name",
+      name: "title",
+      title: "Title",
       type: "string",
     },
     {
       name: "slug",
       title: "Slug",
       type: "slug",
-      options: { source: "name" },
+      options: { source: "title" },
+    },
+    {
+      name: "description",
+      title: "Description",
+      type: "array",
+      of: [{ type: "block" }],
     },
     {
       name: "image",
@@ -35,4 +41,4 @@ const project = {
   ],
 };
 
-export default project;
+export default category;

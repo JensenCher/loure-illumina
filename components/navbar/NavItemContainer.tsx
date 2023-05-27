@@ -22,13 +22,13 @@ const NavItemContainer = forwardRef<HTMLDivElement, NavItemContainerProps>(({ is
           <div>
             <ul className="whitespace-pre px-2.5 flex flex-col font-medium overflow-x-hidden scrollbar-thin scrollbar-track-white scrollbar-thumb-slate-100">
               <li className="py-1 px-3 text-center rounded-md hover:bg-slate-200/30 dark:hover:bg-slate-900/10 transition duration-300 border-b-2 border-slate-600 dark:border-slate-200">
-                <Link href="/tarot_angelus" className="font-header font-bold text-sm" title="Tarot Angelus">
+                <Link href="/tarot-angelus" className="font-header font-bold text-sm uppercase" title="Tarot Angelus">
                   TAROT ANGELUS
                 </Link>
               </li>
               <li className="py-1 px-3 text-center rounded-md hover:bg-slate-200/30 dark:hover:bg-slate-900/10 transition duration-300">
-                <Link href="/tarot_angelus" className="font-header font-bold text-sm" title="Tarot Angelus">
-                  TAROT ANGELUS
+                <Link href={"#"} className="font-header font-bold text-sm uppercase" title="About">
+                  About
                 </Link>
               </li>
             </ul>
@@ -36,11 +36,16 @@ const NavItemContainer = forwardRef<HTMLDivElement, NavItemContainerProps>(({ is
         </div>
       ) : (
         <div className="border-l-2 border-amber-600/40 hidden md:flex flex-row items-center justify-between text-black gap-1 px-3 sm:px-5 py-3">
-          <NavItem href={"/tarot_angelus"} className="px-3 sm:px-5 font-header font-bold" paragraphClass="dark:hover:drop-shadow-navitem-slate transition duration-300">
+          <NavItem
+            href={"/tarot-angelus"}
+            className="px-3 sm:px-5 font-header font-bold"
+            paragraphClass="dark:hover:drop-shadow-navitem-slate transition duration-300"
+            title="Tarot Angelus"
+          >
             TAROT ANGELUS
           </NavItem>
-          <NavItem href={"/tarot_angelus"} className="px-3 sm:px-5 font-header font-bold" paragraphClass="dark:hover:drop-shadow-navitem-slate transition duration-300">
-            TAROT ANGELUS
+          <NavItem href={"#"} className="px-3 sm:px-5 font-header font-bold uppercase" paragraphClass="dark:hover:drop-shadow-navitem-slate transition duration-300" title="About">
+            About
           </NavItem>
         </div>
       )}

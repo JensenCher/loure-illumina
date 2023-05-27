@@ -55,8 +55,8 @@ export default async function Home() {
             ))}
           </div>
         </div>
-        <div className="h-96 bg-orange-500"></div>
-        <div className="h-96 bg-purple-500"></div>
+        {/* <div className="h-96 bg-orange-500"></div>
+        <div className="h-96 bg-purple-500"></div> */}
       </Container>
     </ClientOnly>
   );

@@ -21,11 +21,11 @@ export default async function TarotAngelusHome() {
 
   return (
     <ClientOnly>
-      <div className="relative pt-20 pb-40 md:top-28 md:pt-0 flex items-center justify-center overflow-x-hidden overflow-y-hidden">
-        <div className="container max-w-7xl w-full mx-auto pl-10 pr-10">
+      <div className="relative pt-20 pb-10 md:pb-40 md:top-28 md:pt-0 flex items-center justify-center overflow-x-hidden overflow-y-hidden">
+        <div className="container max-w-7xl w-full mx-auto px-10 pt-5 md:pt-0">
           <div className="gap-6 flex flex-col justify-start md:justify-center items-center ">
-            <div className="bg-slate-950/60 dark:bg-slate-100/10 rounded-2xl md:bg-transparent md:dark:bg-transparent z-10 p-4">
-              <LargeHeading size="default" className="three-d font-header md:text-black md:dark:text-light-gold pb-4 md:text-center">
+            <div className="rounded-2xl md:bg-transparent md:dark:bg-transparent z-10 p-4">
+              <LargeHeading size="default" className="three-d font-header md:text-black dark:text-light-gold pb-4 md:text-center">
                 TAROT ANGELUS
               </LargeHeading>
               <Paragraph className="max-w-2xl md:text-center text-slate-300 md:text-slate-700 md:dark:text-slate-300">
@@ -50,8 +50,6 @@ export default async function TarotAngelusHome() {
             ))}
           </div>
         </div>
-        <div className="h-96 bg-orange-500"></div>
-        <div className="h-96 bg-purple-500"></div>
       </Container>
     </ClientOnly>
   );

@@ -6,22 +6,20 @@ import EmptyState from "@/components/EmptyState";
 import CharacterCard from "@/components/characters/CharacterCard";
 import LargeHeading from "@/components/ui/LargeHeading";
 import Paragraph from "@/ui/Paragraph";
-import Nav from "@/components/navbar/Nav";
 
 export default async function Home() {
   const characters = await getCharacters();
 
-  if (characters.length === 0) {
-    return (
-      <ClientOnly>
-        <EmptyState showReset />
-      </ClientOnly>
-    );
-  }
+  // if (characters.length === 0) {
+  //   return (
+  //     <ClientOnly>
+  //       <EmptyState showReset />
+  //     </ClientOnly>
+  //   );
+  // }
 
   return (
     <ClientOnly>
-      {/* <Nav /> */}
       <div className="w-full justify-center items-center h-screen top-0 md:top-28 md:max-w-3xl md:left-1/2 aspect-square absolute">
         <Image priority className="img-shadow pt-20 md:pt-0" quality={100} style={{ objectFit: "contain" }} fill src="/images/fool.png" alt="fool_banner" />
       </div>

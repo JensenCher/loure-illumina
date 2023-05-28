@@ -3,6 +3,8 @@ import ClientOnly from "@/components/ClientOnly";
 import Providers from "@/components/Providers";
 import { Toaster } from "@/components/ui/Toast";
 import Nav from "@/components/navbar/Nav";
+import Footer from "@/components/footer/Footer";
+import ScrollToTopButton from "@/ui/ScrollToTopButton";
 
 export const metadata = {
   title: "Loure Illumina",
@@ -17,6 +19,8 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
         <Nav />
         {/* Allow for more height on Mobile screens */}
         <div className="relative pb-20 overflow-hidden">{children}</div>
+        <ScrollToTopButton />
+        <Footer />
       </Providers>
     </ClientOnly>
   );

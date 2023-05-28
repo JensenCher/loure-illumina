@@ -16,7 +16,7 @@ interface FooterColProps {
 
 const FooterCol: React.FC<FooterColProps> = ({ title, className, links }) => {
   return (
-    <div className={"mx-auto " + className}>
+    <div className={"mx-auto md:mx-none " + className}>
       <h1 className="text-sm font-bold pb-3">{title}</h1>
       <ul>
         {links.map((item, index) => (

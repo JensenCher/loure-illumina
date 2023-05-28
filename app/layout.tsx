@@ -1,7 +1,8 @@
 import "./globals.css";
-import { Roboto, Cinzel_Decorative, Raleway } from "@next/font/google";
+import { Roboto, Cinzel, Cinzel_Decorative, Raleway } from "@next/font/google";
 import { cn } from "@/lib/utils";
 import Footer from "@/components/footer/Footer";
+import ScrollToTopButton from "@/ui/ScrollToTopButton";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -10,6 +11,12 @@ const roboto = Roboto({
 });
 
 const cinzel_decorative = Cinzel_Decorative({
+  subsets: ["latin"],
+  weight: ["400", "700", "900"],
+  variable: "--mainheader-font",
+});
+
+const cinzel = Cinzel({
   subsets: ["latin"],
   weight: ["400", "700", "900"],
   variable: "--header-font",
@@ -28,10 +35,11 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={cn("bg-gray-200 text-slate-900 antialiased", cinzel_decorative.variable, raleway.variable)}>
+    <html lang="en" className={cn("bg-gray-200 text-slate-900 antialiased", cinzel.variable, cinzel_decorative.variable, raleway.variable)}>
       <body className="min-h-screen bg-slate-50 dark:bg-slate-900 antialiased font-body vsc-initialized">
         {children}
-        <Footer />
+        {/* <ScrollToTopButton />
+        <Footer /> */}
       </body>
     </html>
   );

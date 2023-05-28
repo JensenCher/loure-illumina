@@ -4,6 +4,7 @@ import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import LargeHeading from "@/components/ui/LargeHeading";
 import Paragraph from "@/components/ui/Paragraph";
+// import CharacterCardMoving from "@/components/characters/CharacterCardMoving";
 
 interface IParams {
   characterSlug?: string;
@@ -18,7 +19,7 @@ const CharacterPage = async ({ params }: { params: IParams }) => {
     <Container>
       <div className="relative pt-20 pb-40 md:top-28 md:pt-0 flex items-center justify-center overflow-x-hidden overflow-y-hidden">
         <div className="container max-w-7xl w-full mx-auto pl-10 pr-10 flex flex-col items-center justify-center">
-          <LargeHeading size="default" className="three-d font-header md:text-black dark:text-light-gold pb-4 md:text-center">
+          <LargeHeading size="default" className="three-d font-header md:text-black dark:text-light-gold pb-4 md:text-center tracking-widest">
             {character.title}
           </LargeHeading>
           <Paragraph className="max-w-2xl md:text-center md:text-2xl text-slate-300 md:text-slate-700 md:dark:text-slate-300">
@@ -34,10 +35,11 @@ const CharacterPage = async ({ params }: { params: IParams }) => {
               {/* <Image /> */}
               {/* {character.name}{" "} */}
             </div>
-            <div className="py-5">
+            <div className="py-5 text-black dark:text-white">
               <PortableText value={character.description} />
             </div>
           </div>
+          {/* <CharacterCardMoving /> */}
         </div>
       </div>
     </Container>

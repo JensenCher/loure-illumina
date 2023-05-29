@@ -33,7 +33,7 @@ const ScrollToTopContainerVariants: Variants = {
   },
 };
 
-const scrollToTopButton = () => {
+const ScrollToTopButton = () => {
   const [yValue, setYValue] = useState(0);
   const { scrollYProgress } = useScroll();
   const controls = useAnimationControls();
@@ -69,4 +69,4 @@ const scrollToTopButton = () => {
   );
 };
 
-export default scrollToTopButton;
+export default ScrollToTopButton;

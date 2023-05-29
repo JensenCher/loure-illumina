@@ -12,5 +12,9 @@ export type Character = {
   image: string;
   category: Category;
   url: string;
+  bgUrl: string;
+  borderUrl: string;
+  mgUrl: string;
+  charUrl: string;
   content: PortableTextBlock[];
 };

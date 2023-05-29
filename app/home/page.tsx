@@ -6,6 +6,8 @@ import EmptyState from "@/components/EmptyState";
 import CharacterCard from "@/components/characters/CharacterCard";
 import LargeHeading from "@/components/ui/LargeHeading";
 import Paragraph from "@/ui/Paragraph";
+import MovingCard from "@/components/characters/MovingCard";
+import Link from "next/link";
 
 export default async function Home() {
   const characters = await getCharacters();
@@ -42,19 +44,24 @@ export default async function Home() {
       <Container>
         <div className="p-3">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5 place-items-center">
-            {characters.map((character) => (
-              <CharacterCard key={character._id} data={character} disabled={character.url ? true : false} />
-            ))}
-            {characters.map((character) => (
-              <CharacterCard key={character._id} data={character} disabled={character.url ? true : false} />
-            ))}
-            {characters.map((character) => (
-              <CharacterCard key={character._id} data={character} disabled={character.url ? true : false} />
-            ))}
+            {characters.map((character) => {
+              return character.charUrl ? (
+                <MovingCard data={character} width="250px" height="410px" navigate={true}>
+                  <h3 className="font-bold text-lg">Hello title</h3>
+                  <p className="text-base">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur non explicabo nulla odit ex temporibus soluta eum repudiandae quis? Ipsam?
+                  </p>
+                </MovingCard>
+              ) : character.url ? (
+                <Link href={`/${character.category.slug}/${character.slug}`} className="block col-span-1 cursor-pointer group" title={character.title}>
+                  <Image width={250} height={410} className="object-fill rounded-2xl" alt="Character" src={character.url} />
+                </Link>
+              ) : (
+                <div className="object-cover h-full w-full bg-white group-hover:scale-110 transition" />
+              );
+            })}
           </div>
         </div>
-        {/* <div className="h-96 bg-orange-500"></div>
-        <div className="h-96 bg-purple-500"></div> */}
       </Container>
     </ClientOnly>
   );

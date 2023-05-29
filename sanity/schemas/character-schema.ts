@@ -49,6 +49,26 @@ const character = {
       type: "url",
     },
     {
+      name: "bgUrl",
+      title: "Background URL",
+      type: "url",
+    },
+    {
+      name: "borderUrl",
+      title: "Border URL",
+      type: "url",
+    },
+    {
+      name: "mgUrl",
+      title: "MG URL",
+      type: "url",
+    },
+    {
+      name: "charUrl",
+      title: "Character URL",
+      type: "url",
+    },
+    {
       name: "content",
       title: "Content",
       type: "array",

@@ -20,6 +20,10 @@ export async function getCharacters(): Promise<Character[]> {
         description,
         "image": image.asset->url,
         url,
+        bgUrl,
+        borderUrl,
+        mgUrl,
+        charUrl,
         content,
         category->{
           _id,
@@ -43,6 +47,10 @@ export async function getCharacterById(id: string): Promise<Character> {
         description,
         "image": image.asset->url,
         url,
+        bgUrl,
+        borderUrl,
+        mgUrl,
+        charUrl,
         content,
         category->{
           _id,
@@ -67,6 +75,10 @@ export async function getCharacterBySlug(slug: string): Promise<Character> {
         description,
         "image": image.asset->url,
         url,
+        bgUrl,
+        borderUrl,
+        mgUrl,
+        charUrl,
         content,
         category->{
           _id,

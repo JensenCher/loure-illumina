@@ -4,6 +4,7 @@ import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import LargeHeading from "@/components/ui/LargeHeading";
 import Paragraph from "@/components/ui/Paragraph";
+import MovingCard from "@/components/characters/MovingCard";
 // import CharacterCardMoving from "@/components/characters/CharacterCardMoving";
 
 interface IParams {
@@ -27,7 +28,17 @@ const CharacterPage = async ({ params }: { params: IParams }) => {
           </Paragraph>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-10">
             <div key={character._id} className="flex justify-center py-5">
-              {character.url ? (
+              {character.charUrl ? (
+                <div>
+                  {/* 320px 536px */}
+                  <MovingCard data={character} width="250px" height="410px">
+                    <h3 className="font-bold text-lg">Hello title</h3>
+                    <p className="text-base">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur non explicabo nulla odit ex temporibus soluta eum repudiandae quis? Ipsam?
+                    </p>
+                  </MovingCard>
+                </div>
+              ) : character.url ? (
                 <Image width={375} height={500} className="object-contain rounded-2xl" alt="Character" src={character.url} />
               ) : (
                 <div className="object-cover h-full w-full bg-white group-hover:scale-110 transition" />

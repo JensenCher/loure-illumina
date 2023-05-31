@@ -1,0 +1,17 @@
+.int {
+    position: relative;
+}
+
+.int span {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 0;
+    background: rgb(107 33 168 / 800);
+    transition: 0.3s ease;
+}
+
+.int input:focus~span {
+    width: 100%;
+}

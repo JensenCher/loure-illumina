@@ -28,45 +28,12 @@ export default function Footer() {
       <div className="py-5">
         <Container>
           <div className="py-5 border-t-2 border-slate-400/50">
-            <LargeHeading size="sm" className="p-5 text-slate-100 dark:text-light-gold">
-              Let's Work
-              <br />
-              Together
+            <LargeHeading size="sm" className="p-5 text-slate-100 dark:text-light-gold md:max-w-[250px]">
+              Let's Work <span className="inline-block">Together</span>
             </LargeHeading>
             <div className="flex flex-col md:flex-row md:items-stretch w-full md:gap-16">
-              <div className="py-5 md:pt-8 min-w-[300px] max-w-[300px] mx-auto md:mx-5 md:max-w-[250px] md:flex md:flex-col md:justify-between md">
+              <div className="py-5 md:pt-5 min-w-[300px] max-w-[500px] mx-auto md:mx-5 md:max-w-[500px] md:flex md:flex-col md:justify-between md">
                 <FooterContact />
-                {/* <div className="flex flex-col">
-                  <div className="relative pb-5 w-full">
-                    <input
-                      className="peer w-full h-10 rounded-xl p-3 py-1 bg-slate-300 dark:bg-slate-800 text-black dark:text-white
-                      focus:outline-slate-100 focus:border-b-2 transition-colors placeholder-transparent"
-                      type="email"
-                      name="email"
-                      id="email"
-                      placeholder=" "
-                    />
-                    <label
-                      htmlFor="email"
-                      className="absolute left-3 -top-6 text-slate-300 text-sm cursor-text transition-all
-                    peer-placeholder-shown:text-base peer-placeholder-shown:text-slate-800 dark:peer-placeholder-shown:text-slate-400 peer-placeholder-shown:top-2 
-                    peer-focus:-top-6 peer-focus:text-sm peer-focus:text-slate-300"
-                    >
-                      Email
-                    </label>
-                  </div>
-                  <div className="flex justify-center md:justify-normal">
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="border dark:border-slate-800 transition-all hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100 group"
-                      title="Subscribe to Mailing List"
-                    >
-                      <Icons.Send className="mr-3" />
-                      Subscribe
-                    </Button>
-                  </div>
-                </div> */}
                 <div className="hidden md:flex md:flex-row md:gap-4 text-slate-400">
                   {/* <div title="Twitter">
                     <Icons.Twitter className="hover:text-white transition duration-300 cursor-pointer" />
@@ -85,7 +52,7 @@ export default function Footer() {
                   </a>
                 </div>
               </div>
-              <div className="py-5 px-5 grid grid-cols-3 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-14 items-start justify-between">
+              <div className="py-5 md:pt-0 md:pb-5 px-5 grid grid-cols-3 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-14 items-start justify-between">
                 <FooterCol
                   title={"Resources"}
                   links={[

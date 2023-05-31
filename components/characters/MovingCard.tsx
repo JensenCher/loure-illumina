@@ -15,6 +15,7 @@ interface MovingCardProps {
   children: React.ReactNode;
 }
 
+// Card Dimensions 2691 / 4491 fraction
 const MovingCard: React.FC<MovingCardProps> = ({ data, navigate = false, width = "20rem", height = "33.5rem", className = "", children }) => {
   const CardRef = useRef<HTMLDivElement>(null);
   // span left & right & width

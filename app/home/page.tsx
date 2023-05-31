@@ -53,9 +53,10 @@ export default async function Home() {
                   </p>
                 </MovingCard>
               ) : character.url ? (
-                <Link href={`/${character.category.slug}/${character.slug}`} className="block col-span-1 cursor-pointer group" title={character.title}>
-                  <Image width={250} height={410} className="object-fill rounded-2xl" alt="Character" src={character.url} />
-                </Link>
+                // <Link href={`/${character.category.slug}/${character.slug}`} className="block col-span-1 cursor-pointer group" title={character.title}>
+                //   <Image width={250} height={410} className="object-fill rounded-2xl" alt="Character" src={character.url} />
+                // </Link>
+                <CharacterCard data={character} />
               ) : (
                 <div className="object-cover h-full w-full bg-white group-hover:scale-110 transition" />
               );

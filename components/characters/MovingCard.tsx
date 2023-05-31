@@ -124,6 +124,24 @@ const MovingCard: React.FC<MovingCardProps> = ({ data, navigate = false, width =
       <animated.div className={`absolute top-0 left-0 w-full h-full`} style={style3}>
         <Image src={data.charUrl} fill alt="ch" className="w-full h-full object-contain" sizes={"50vw"} />
       </animated.div>
+      {navigate ? (
+        <div
+          className="h-14 bottom-0 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition duration-300
+                absolute w-full bg-opacity-5 bg-gradient-to-t from-black 
+                 rounded drop-shadow-lg 
+                text-white p-5 flex justify-between
+            "
+        >
+          <div className="absolute bottom-0 pb-4 group-hover">
+            <div className="font-semibold text-lg px-1">
+              <span className="font-header">{data?.name}</span>
+              <span className="block text-sm">{data?.title}</span>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <></>
+      )}
     </div>
   );
 

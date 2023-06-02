@@ -27,8 +27,8 @@ export default function Footer() {
     <div className={"w-full"}>
       <div className="py-5">
         <Container>
-          <div className="py-5 border-t-2 border-slate-400/50">
-            <LargeHeading size="sm" className="p-5 text-slate-100 dark:text-light-gold md:max-w-[250px]">
+          <div className="py-5 border-t-2 border-slate-100 dark:border-slate-500">
+            <LargeHeading size="sm" className="p-5 text-3xl text-slate-100 dark:text-light-gold md:max-w-[250px]">
               Let's Work <span className="inline-block">Together</span>
             </LargeHeading>
             <div className="flex flex-col md:flex-row md:items-stretch w-full md:gap-16">
@@ -64,12 +64,12 @@ export default function Footer() {
                     {
                       type: "link",
                       title: "About",
-                      path: "/",
+                      path: "/about",
                     },
                     {
                       type: "link",
-                      title: "The Team",
-                      path: "/",
+                      title: "Team",
+                      path: "/team",
                     },
                   ]}
                 />
@@ -79,32 +79,32 @@ export default function Footer() {
                     {
                       type: "link",
                       title: "0 - The Fool",
-                      path: "/tarot-angelus",
+                      path: "/tarot-angelus/0-the-fool",
                     },
                     {
                       type: "link",
                       title: "1 - The Magician",
-                      path: "/tarot-angelus",
+                      path: "/tarot-angelus/1-the-magician",
                     },
                     {
                       type: "link",
                       title: "2 - High Priestess",
-                      path: "/tarot-angelus",
+                      path: "/tarot-angelus/2-high-priestess",
                     },
                     {
                       type: "link",
                       title: "3 - The Empress",
-                      path: "/tarot-angelus",
+                      path: "/tarot-angelus/3-the-empress",
                     },
                     {
                       type: "link",
                       title: "4 - The Emperor",
-                      path: "/tarot-angelus",
+                      path: "/tarot-angelus/4-the-emperor",
                     },
                     {
                       type: "link",
-                      title: "999 - Mount Fuji",
-                      path: "/tarot-angelus",
+                      title: "999 - Mt Fuji",
+                      path: "/tarot-angelus/999-mt-fuji",
                     },
                     {
                       type: "link",

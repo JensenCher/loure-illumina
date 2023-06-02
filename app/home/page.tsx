@@ -3,14 +3,14 @@ import { getCharacterById, getCharacters } from "@/sanity/sanity-utils";
 import ClientOnly from "@/components/ClientOnly";
 import Container from "@/components/Container";
 import EmptyState from "@/components/EmptyState";
-import CharacterCard from "@/components/characters/CharacterCard";
+import CharacterCard from "@/components/cards/CharacterCard";
 import LargeHeading from "@/components/ui/LargeHeading";
 import Paragraph from "@/ui/Paragraph";
-import MovingCard from "@/components/characters/MovingCard";
+import MovingCard from "@/components/cards/MovingCard";
 import Link from "next/link";
 
 export default async function Home() {
-  const characters = await getCharacters();
+  const characters = await getCharacters("title");
 
   // if (characters.length === 0) {
   //   return (

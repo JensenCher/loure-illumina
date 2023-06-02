@@ -27,6 +27,7 @@ const UserMenu = () => {
             onClick={() => {
               setIsOpen(!isOpen);
             }}
+            title="Menu"
           >
             <Icons.Menu className="scale-100 transition-all text-slate-900 hover:scale-110 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100" />
           </Button>

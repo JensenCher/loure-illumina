@@ -24,6 +24,9 @@ module.exports = {
         "navitem-slate": ["0 0 1px rgb(203 213 225 / 1)", "0 2px 10px rgb(203 213 225 / 0.5)"],
         "4xl": ["0 35px 35px rgba(0 0 0 0.55)", "0 55px 65px rgba(0 0 0 0.55)"],
       },
+      fontSize: {
+        xxs: ["0.5rem", "0.75rem"],
+      },
     },
   },
   plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography"), require("tailwind-scrollbar")],

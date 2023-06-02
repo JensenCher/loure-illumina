@@ -17,18 +17,23 @@ const NavItemContainer = forwardRef<HTMLDivElement, NavItemContainerProps>(({ is
       {isSidebar ? (
         <div className={"flex flex-col items-center gap-2.5 font-medium relative ml-10 mr-6 text-slate-200 dark:text-slate-900 py-2 " + className}>
           <div className="w-full border-b border-slate-300 dark:border-slate-500 py-2 flex items-center justify-center">
-            <p className="text-2xl">Menu</p>
+            <p className="text-2xl font-header font-extrabold">MENU</p>
           </div>
           <div>
             <ul className="whitespace-pre px-2.5 flex flex-col font-medium overflow-x-hidden scrollbar-thin scrollbar-track-white scrollbar-thumb-slate-100">
-              <li className="py-1 px-3 text-center rounded-md hover:bg-slate-200/30 dark:hover:bg-slate-900/10 transition duration-300 border-b-2 border-slate-600 dark:border-slate-200">
+              <li className="py-1 px-3 text-center rounded-md hover:bg-slate-200/30 dark:hover:bg-slate-900/10 transition duration-300">
                 <Link href="/tarot-angelus" className="font-header font-bold text-sm uppercase" title="Tarot Angelus">
                   TAROT ANGELUS
                 </Link>
               </li>
               <li className="py-1 px-3 text-center rounded-md hover:bg-slate-200/30 dark:hover:bg-slate-900/10 transition duration-300">
-                <Link href={"#"} className="font-header font-bold text-sm uppercase" title="About">
+                <Link href={"/about"} className="font-header font-bold text-sm uppercase" title="About">
                   About
+                </Link>
+              </li>
+              <li className="py-1 px-3 text-center rounded-md hover:bg-slate-200/30 dark:hover:bg-slate-900/10 transition duration-300">
+                <Link href={"/team"} className="font-header font-bold text-sm uppercase" title="The Team">
+                  Team
                 </Link>
               </li>
             </ul>
@@ -44,8 +49,21 @@ const NavItemContainer = forwardRef<HTMLDivElement, NavItemContainerProps>(({ is
           >
             TAROT ANGELUS
           </NavItem>
-          <NavItem href={"#"} className="px-3 sm:px-5 font-header font-bold uppercase" paragraphClass="dark:hover:drop-shadow-navitem-slate transition duration-300" title="About">
+          <NavItem
+            href={"/about"}
+            className="px-3 sm:px-5 font-header font-bold uppercase"
+            paragraphClass="dark:hover:drop-shadow-navitem-slate transition duration-300"
+            title="About"
+          >
             About
+          </NavItem>
+          <NavItem
+            href={"/team"}
+            className="px-3 sm:px-5 font-header font-bold uppercase"
+            paragraphClass="dark:hover:drop-shadow-navitem-slate transition duration-300"
+            title="Team"
+          >
+            Team
           </NavItem>
         </div>
       )}

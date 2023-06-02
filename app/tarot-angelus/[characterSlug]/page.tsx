@@ -4,7 +4,7 @@ import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import LargeHeading from "@/components/ui/LargeHeading";
 import Paragraph from "@/components/ui/Paragraph";
-import MovingCard from "@/components/characters/MovingCard";
+import MovingCard from "@/components/cards/MovingCard";
 // import CharacterCardMoving from "@/components/characters/CharacterCardMoving";
 
 interface IParams {

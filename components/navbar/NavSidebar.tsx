@@ -11,16 +11,9 @@ interface NavSidebarProps {
   onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
-const NavSidebar = forwardRef<HTMLDivElement, NavSidebarProps>(({ isSidebar, isOpen, onClick, ...props }, ref) => {
+const NavSidebar = forwardRef<HTMLDivElement, NavSidebarProps>(({ isSidebar, isOpen = false, onClick, ...props }, ref) => {
   const sidebar_animation = {
     // System view
-    open: {
-      width: "16rem",
-      x: 0,
-      transition: {
-        damping: 40,
-      },
-    },
     closed: {
       width: "0",
       x: "100%",
@@ -28,16 +21,26 @@ const NavSidebar = forwardRef<HTMLDivElement, NavSidebarProps>(({ isSidebar, isO
         damping: 40,
       },
     },
+    open: {
+      width: "16rem",
+      x: 0,
+      transition: {
+        damping: 40,
+      },
+    },
   };
+
+  // Not allow users to scroll when sidebar is open
+  isOpen ? (document.body.style.overflow = "hidden") : (document.body.style.overflow = "auto");
 
   return (
     <div>
-      <div className={`md:hidden fixed inset-0 h-[3000px] z-[998] bg-black/50 ${isOpen ? "block" : "hidden"}`} onClick={onClick}></div>
+      <div className={`md:hidden fixed overscroll-none inset-0 h-[3000px] z-[998] bg-black/50 ${isOpen ? "block" : "hidden"}`} onClick={onClick}></div>
       <motion.div
         variants={sidebar_animation}
         animate={isOpen ? "open" : "closed"}
         className={cn([
-          `${isSidebar ? "" : "hidden"}  absolute right-0 top-0 bg-slate-400 dark:bg-slate-300 text-gray shadow-xl z-[999] w-[16rem] max-w-[16rem] h-[105vh] 
+          `${isSidebar ? "" : "hidden"}  absolute overscroll-none right-0 w-[0] top-0 bg-slate-400 dark:bg-slate-300 text-gray shadow-xl z-[999] max-w-[16rem] h-[105vh] 
             overflow-x-hidden scrollbar-thin scrollbar-track-slate-700 scrollbar-thumb-slate-300 md:hidden transition duration-300 rounded-bl-2xl`,
         ])}
         ref={ref}

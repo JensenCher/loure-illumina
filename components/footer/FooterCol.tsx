@@ -20,7 +20,7 @@ const FooterCol: React.FC<FooterColProps> = ({ title, className, links }) => {
       <h1 className="text-sm font-bold pb-3">{title}</h1>
       <ul>
         {links.map((item, index) => (
-          <li className="text-sm pb-3 text-slate-400 hover:text-white duration-300 transition" key={index}>
+          <li className="text-sm pb-3 text-slate-300 dark:text-slate-400 hover:text-white hover:dark:text-white duration-300 transition" key={index}>
             {item.type === "link" ? <Link href={item.path}>{item.title}</Link> : <a></a>}
           </li>
         ))}

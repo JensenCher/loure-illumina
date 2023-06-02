@@ -9,7 +9,7 @@ const client = createClient({
   useCdn: process.env.NODE_ENV === "production",
 });
 
-export async function getCharacters(): Promise<Character[]> {
+export async function getCharacters(orderBy: string | null = null): Promise<Character[]> {
   return client.fetch(
     groq`*[_type=="character"]{
         _id,
@@ -32,7 +32,7 @@ export async function getCharacters(): Promise<Character[]> {
           "slug": slug.current,
           description,
         },
-    }`
+    } ${orderBy ? " | order(" + orderBy + " asc)" : ""}`
   );
 }
 

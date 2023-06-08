@@ -12,7 +12,7 @@ interface MovingCardProps {
   className?: string;
   width?: string;
   height?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 // Card Dimensions 2691 / 4491 fraction
@@ -54,7 +54,7 @@ const MovingCard: React.FC<MovingCardProps> = ({ data, navigate = false, width =
     display: "inline-block",
     backfaceVisibility: "hidden" as any,
     // transform: isMoving ? `rotate(${rotation}deg)` : `rotate(0deg)`,
-    transform: isMoving ? `translate(${translate[0] * -1 * 0.07}px, ${translate[1] * -1 * 0.07}px)` : `translate(0px, 0px)`,
+    transform: isMoving ? `translate(${translate[0] * -1 * 0.08}px, ${translate[1] * -1 * 0.08}px)` : `translate(0px, 0px)`,
     transition: `transform 100ms`,
     config: {
       tension: 100,
@@ -124,6 +124,9 @@ const MovingCard: React.FC<MovingCardProps> = ({ data, navigate = false, width =
       <animated.div className={`absolute top-0 left-0 w-full h-full`} style={style3}>
         <Image src={data.charUrl} fill alt="ch" className="w-full h-full object-contain" sizes={"50vw"} />
       </animated.div>
+      {/* <animated.div className={`absolute top-0 left-0 w-full h-full`} style={styleBorder}>
+        <Image src={data.borderUrl} fill alt="border" className="w-full h-full object-contain" sizes={"50vw"} />
+      </animated.div> */}
       {navigate ? (
         <div
           className="h-14 bottom-0 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition duration-300

@@ -46,7 +46,7 @@ export default async function Team() {
               <LargeHeading size="default" className="three-d font-header md:text-black dark:text-light-gold pb-4 md:text-left">
                 <span className="tracking-normal">Our Core Team</span>
               </LargeHeading>
-              <Paragraph className="max-w-4xl text-left text-xs md:text-base text-slate-300 md:text-slate-700 md:dark:text-slate-300">
+              <Paragraph className="max-w-4xl text-left text-xs md:text-base text-slate-700 dark:text-slate-300">
                 <p className="leading-6 py-3">
                   In the mystical realm of Loure Illumina, a dedicated team of talented individuals comes together to breathe life into this extraordinary project. Led by the Main
                   Artist, our collective efforts shape the visual landscape of the game, infusing it with awe-inspiring beauty and captivating Tarot card illustrations.

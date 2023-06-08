@@ -22,17 +22,17 @@ export default async function Home() {
 
   return (
     <ClientOnly>
-      <div className="w-full justify-center items-center h-screen top-0 md:top-28 md:max-w-3xl md:left-1/2 aspect-square absolute">
+      <div className="w-full justify-center items-center h-fit top-56 md:h-screen md:top-28 md:max-w-3xl md:left-1/2 aspect-square absolute">
         <Image priority className="img-shadow pt-20 md:pt-0" quality={100} style={{ objectFit: "contain" }} fill src="/images/fool.png" alt="fool_banner" />
       </div>
-      <div className="relative pt-20 pb-40 md:top-28 md:h-screen md:pt-0 flex items-center justify-center overflow-x-hidden overflow-y-hidden">
+      <div className="relative pt-20 pb-48 md:pb-40 top-32 md:top-28 h-screen md:pt-0 flex items-start md:items-center justify-center overflow-x-hidden overflow-y-hidden">
         <div className="container max-w-7xl w-full mx-auto pl-10 pr-10">
           <div className="gap-6 flex flex-col justify-start md:justify-center items-center md:items-start">
-            <div className="bg-slate-950/60 dark:bg-slate-100/10 rounded-2xl md:bg-transparent md:dark:bg-transparent z-10 p-4">
-              <LargeHeading size="default" className="three-d font-header md:text-black md:dark:text-light-gold pb-4">
+            <div className="rounded-2xl md:bg-transparent md:dark:bg-transparent z-10 p-4">
+              <LargeHeading size="default" className="three-d font-header md:text-black dark:text-light-gold pb-4">
                 Loure Illumina
               </LargeHeading>
-              <Paragraph className="max-w-xl md:text-left text-slate-300 md:text-slate-700 md:dark:text-slate-300">
+              <Paragraph className="max-w-xl hidden md:block md:text-left text-slate-300 md:text-slate-700 md:dark:text-slate-300">
                 In the mystical land of Aradon, a captivating card game known as "Legends of Fate" transports players into a medieval adventure. Valiant warriors, skilled archers,
                 and mystic enchanters clash in epic battles against monstrous creatures and cunning villains. With strategic mastery and a dash of luck, heroes rise, alliances
                 form, and legends are forged in this thrilling medieval card game of destiny.
@@ -42,8 +42,9 @@ export default async function Home() {
         </div>
       </div>
       <Container>
-        <div className="p-3">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5 place-items-center">
+        <div className="p-3 max-w-[1280px] m-auto">
+          {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5 place-items-center"> */}
+          <div className="flex flex-row flex-wrap gap-5 items-center justify-center">
             {characters.map((character) => {
               return character.charUrl ? (
                 <MovingCard data={character} width="250px" height="410px" navigate={true}>

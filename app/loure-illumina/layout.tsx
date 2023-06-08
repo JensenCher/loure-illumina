@@ -7,7 +7,7 @@ import Footer from "@/components/footer/Footer";
 import ScrollToTopButton from "@/ui/ScrollToTopButton";
 
 export const metadata = {
-  title: "Loure Illumina | Tarot Angelus",
+  title: "Loure Illumina",
   description: "Experience the magic of tarot through a medieval lens, offering guidance and enchantment.",
 };
 

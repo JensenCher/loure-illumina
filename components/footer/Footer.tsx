@@ -29,7 +29,8 @@ export default function Footer() {
         <Container>
           <div className="py-5 border-t-2 border-slate-100 dark:border-slate-500">
             <LargeHeading size="sm" className="p-5 text-3xl text-slate-100 dark:text-light-gold md:max-w-[250px]">
-              Let's Work <span className="inline-block">Together</span>
+              Contact Us
+              {/* <span className="inline-block">Together</span> */}
             </LargeHeading>
             <div className="flex flex-col md:flex-row md:items-stretch w-full md:gap-16">
               <div className="py-5 md:pt-5 min-w-[300px] max-w-[500px] mx-auto md:mx-5 md:max-w-[500px] md:flex md:flex-col md:justify-between md">
@@ -58,8 +59,8 @@ export default function Footer() {
                   links={[
                     {
                       type: "link",
-                      title: "Tarot Angelus",
-                      path: "/tarot-angelus",
+                      title: "Loure Illumina",
+                      path: "/loure-illumina",
                     },
                     {
                       type: "link",
@@ -79,37 +80,37 @@ export default function Footer() {
                     {
                       type: "link",
                       title: "0 - The Fool",
-                      path: "/tarot-angelus/0-the-fool",
+                      path: "/loure-illumina/0-the-fool",
                     },
                     {
                       type: "link",
                       title: "1 - The Magician",
-                      path: "/tarot-angelus/1-the-magician",
+                      path: "/loure-illumina/1-the-magician",
                     },
                     {
                       type: "link",
                       title: "2 - High Priestess",
-                      path: "/tarot-angelus/2-high-priestess",
+                      path: "/loure-illumina/2-high-priestess",
                     },
                     {
                       type: "link",
                       title: "3 - The Empress",
-                      path: "/tarot-angelus/3-the-empress",
+                      path: "/loure-illumina/3-the-empress",
                     },
                     {
                       type: "link",
                       title: "4 - The Emperor",
-                      path: "/tarot-angelus/4-the-emperor",
+                      path: "/loure-illumina/4-the-emperor",
                     },
                     {
                       type: "link",
                       title: "999 - Mt Fuji",
-                      path: "/tarot-angelus/999-mt-fuji",
+                      path: "/loure-illumina/999-mt-fuji",
                     },
                     {
                       type: "link",
                       title: "More...",
-                      path: "/tarot-angelus",
+                      path: "/loure-illumina",
                     },
                   ]}
                 />
@@ -119,12 +120,12 @@ export default function Footer() {
                     {
                       type: "link",
                       title: "Humble Beginnings",
-                      path: "/tarot-angelus",
+                      path: "/loure-illumina",
                     },
                     {
                       type: "link",
                       title: "March of Innovation",
-                      path: "/tarot-angelus",
+                      path: "/loure-illumina",
                     },
                   ]}
                 />

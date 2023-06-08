@@ -57,7 +57,7 @@ const ScrollToTopButton = () => {
 
   return (
     <motion.button
-      className="fixed bottom-[3.5rem] right-[1.5rem] md:bottom-[5.5rem] md:right-[2.5rem] p-5 bg-slate-300 rounded-full scale-100 hover:scale-110 hover:bg-slate-500 transition duration-300"
+      className="fixed bottom-[3.5rem] z-[100] right-[1.5rem] md:bottom-[5.5rem] md:right-[2.5rem] p-5 text-slate-800 hover:text-slate-100 bg-slate-400 dark:bg-slate-300 rounded-full scale-100 hover:scale-110 hover:bg-slate-500 transition duration-300"
       variants={ScrollToTopContainerVariants}
       initial="hide"
       animate={controls}

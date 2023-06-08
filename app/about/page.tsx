@@ -24,7 +24,7 @@ export default async function About() {
                 <span className="block ">LOURE ILLUMINA</span>
                 <span className="text-sm md:text-xl font-body tracking-normal text-slate-400">A World of Adventures and Mysteries Await</span>
               </LargeHeading>
-              <Paragraph className="max-w-4xl text-left text-slate-300 md:text-slate-700 md:dark:text-slate-300">
+              <Paragraph className="max-w-4xl text-left dark:text-slate-300 text-slate-900">
                 <p className="indent-8 leading-8">
                   In the enchanting realm of Loure Illumina, a mystical land veiled in ancient secrets and untold wonders, a diverse cast of Tarot card characters embarks on
                   thrilling adventures that blend the elements of teamwork, lone wolf pursuits, and the pursuit of love. Each journey unfolds with a unique blend of sadness,

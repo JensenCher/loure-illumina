@@ -16,7 +16,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ data, onAction, disabled,
   return (
     <Link href={`/${data.category.slug}/${data.slug}`} className="block col-span-1 cursor-pointer group">
       <div className="flex flex-col gap-3 w-[250px]">
-        <div className="h-[410px] w-full overflow-hidden relative rounded-xl items-end">
+        <div className="h-[417px] w-full overflow-hidden relative rounded-2xl items-end">
           {data.url ? (
             <Image
               fill

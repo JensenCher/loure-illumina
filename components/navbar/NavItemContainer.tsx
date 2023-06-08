@@ -22,8 +22,8 @@ const NavItemContainer = forwardRef<HTMLDivElement, NavItemContainerProps>(({ is
           <div>
             <ul className="whitespace-pre px-2.5 flex flex-col font-medium overflow-x-hidden scrollbar-thin scrollbar-track-white scrollbar-thumb-slate-100">
               <li className="py-1 px-3 text-center rounded-md hover:bg-slate-200/30 dark:hover:bg-slate-900/10 transition duration-300">
-                <Link href="/tarot-angelus" className="font-header font-bold text-sm uppercase" title="Tarot Angelus">
-                  TAROT ANGELUS
+                <Link href="/loure-illumina" className="font-header font-bold text-sm uppercase" title="Loure Illumina">
+                  LOURE ILLUMINA
                 </Link>
               </li>
               <li className="py-1 px-3 text-center rounded-md hover:bg-slate-200/30 dark:hover:bg-slate-900/10 transition duration-300">
@@ -42,12 +42,12 @@ const NavItemContainer = forwardRef<HTMLDivElement, NavItemContainerProps>(({ is
       ) : (
         <div className="border-l-2 border-amber-600/40 hidden md:flex flex-row items-center justify-between text-black gap-1 px-3 sm:px-5 py-3">
           <NavItem
-            href={"/tarot-angelus"}
+            href={"/loure-illumina"}
             className="px-3 sm:px-5 font-header font-bold"
             paragraphClass="dark:hover:drop-shadow-navitem-slate transition duration-300"
-            title="Tarot Angelus"
+            title="Loure Illumina"
           >
-            TAROT ANGELUS
+            LOURE ILLUMINA
           </NavItem>
           <NavItem
             href={"/about"}

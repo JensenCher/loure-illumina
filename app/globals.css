@@ -4,8 +4,10 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background-start-rgb: 167, 167, 167;
+  --background-end-rgb: 240, 240, 240;
+  /* --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255; */
   --nav-item-drop-shadow: 255 99 71;
 }
 
@@ -19,8 +21,13 @@
 
 body {
   color: rgb(var(--foreground-rgb));
+  background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(170, 170, 170, 1) 40%, rgba(240, 240, 240, 1) 100%);
+}
+.dark body {
+  color: rgb(var(--foreground-rgb));
   background: linear-gradient(to bottom, transparent 40%, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb)) 60%;
 }
+/* background: linear-gradient(to bottom, transparent 40%, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb)) 60%; */
 
 .dark .three-d {
   text-shadow: 0px 5px 0px #533519;

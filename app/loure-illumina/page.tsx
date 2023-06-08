@@ -28,9 +28,9 @@ export default async function TarotAngelusHome() {
           <div className="gap-6 flex flex-col justify-start md:justify-center items-center ">
             <div className="rounded-2xl md:bg-transparent md:dark:bg-transparent z-10 p-4">
               <LargeHeading size="default" className="three-d font-header md:text-black dark:text-light-gold pb-4 md:text-center">
-                TAROT ANGELUS
+                LOURE ILLUMINA
               </LargeHeading>
-              <Paragraph className="max-w-2xl md:text-center text-slate-300 md:text-slate-700 md:dark:text-slate-300">
+              <Paragraph className="max-w-2xl md:text-center text-slate-700dark:text-slate-300">
                 Embark on a spiritual voyage guided by angelic forces. This tarot deck intertwines medieval aesthetics with celestial wisdom, offering profound insights and divine
                 guidance for seekers of enlightenment.
               </Paragraph>
@@ -39,8 +39,9 @@ export default async function TarotAngelusHome() {
         </div>
       </div>
       <Container>
-        <div className="p-3 max-w-[1536px] m-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5 place-items-center">
+        <div className="p-3 max-w-[1280px] m-auto">
+          {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 place-items-center"> */}
+          <div className="flex flex-row flex-wrap gap-5 items-center justify-center">
             {characters.map((character) => {
               return character.charUrl ? (
                 <MovingCard data={character} width="250px" height="410px" navigate={true}>

@@ -15,6 +15,7 @@ export type Character = {
   bgUrl: string;
   borderUrl: string;
   mgUrl: string;
+  mgColorDodgeUrl: string;
   charUrl: string;
   content: PortableTextBlock[];
 };

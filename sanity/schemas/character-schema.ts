@@ -64,6 +64,11 @@ const character = {
       type: "url",
     },
     {
+      name: "mgColorDodgeUrl",
+      title: "MG Color Dodge URL",
+      type: "url",
+    },
+    {
       name: "charUrl",
       title: "Character URL",
       type: "url",

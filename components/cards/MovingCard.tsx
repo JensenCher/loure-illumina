@@ -13,10 +13,11 @@ interface MovingCardProps {
   width?: string;
   height?: string;
   children?: React.ReactNode;
+  mgColorDodge?: Boolean;
 }
 
 // Card Dimensions 2691 / 4491 fraction
-const MovingCard: React.FC<MovingCardProps> = ({ data, navigate = false, width = "20rem", height = "33.5rem", className = "", children }) => {
+const MovingCard: React.FC<MovingCardProps> = ({ data, navigate = false, width = "20rem", height = "33.5rem", className = "", mgColorDodge = false, children }) => {
   const CardRef = useRef<HTMLDivElement>(null);
   // span left & right & width
   const [spanBounds, setSpanBounds] = useState({} as DOMRect);
@@ -121,6 +122,14 @@ const MovingCard: React.FC<MovingCardProps> = ({ data, navigate = false, width =
       <animated.div className={`absolute top-0 left-0 w-full h-full`} style={style2}>
         <Image src={data.mgUrl} fill alt="mg" className="w-full h-full object-contain" sizes={"50vw"} />
       </animated.div>
+      {data.mgColorDodgeUrl ? (
+        <animated.div className={`absolute top-0 left-0 w-full h-full mix-blend-color-dodge`} style={style2}>
+          <Image src={data.mgUrl} fill alt="color-dodge" className="w-full h-full object-contain" sizes={"50vw"} />
+        </animated.div>
+      ) : (
+        <></>
+      )}
+
       <animated.div className={`absolute top-0 left-0 w-full h-full`} style={style3}>
         <Image src={data.charUrl} fill alt="ch" className="w-full h-full object-contain" sizes={"50vw"} />
       </animated.div>

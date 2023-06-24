@@ -24,6 +24,7 @@ export async function getCharacters(orderBy: string | null = null): Promise<Char
         bgUrl,
         borderUrl,
         mgUrl,
+        mgColorDodgeUrl,
         charUrl,
         content,
         category->{
@@ -51,6 +52,7 @@ export async function getCharacterById(id: string): Promise<Character> {
         bgUrl,
         borderUrl,
         mgUrl,
+        mgColorDodgeUrl,
         charUrl,
         content,
         category->{
@@ -79,6 +81,7 @@ export async function getCharacterBySlug(slug: string): Promise<Character> {
         bgUrl,
         borderUrl,
         mgUrl,
+        mgColorDodgeUrl,
         charUrl,
         content,
         category->{

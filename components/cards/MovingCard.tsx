@@ -124,7 +124,7 @@ const MovingCard: React.FC<MovingCardProps> = ({ data, navigate = false, width =
       </animated.div>
       {data.mgColorDodgeUrl ? (
         <animated.div className={`absolute top-0 left-0 w-full h-full mix-blend-color-dodge`} style={style2}>
-          <Image src={data.mgUrl} fill alt="color-dodge" className="w-full h-full object-contain" sizes={"50vw"} />
+          <Image src={data.mgColorDodgeUrl} fill alt="color-dodge" className="w-full h-full object-contain" sizes={"50vw"} />
         </animated.div>
       ) : (
         <></>

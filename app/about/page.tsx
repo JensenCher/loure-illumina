@@ -1,20 +1,9 @@
-import Image from "next/image";
-import { getCharacters } from "@/sanity/sanity-utils";
-import ClientOnly from "@/components/ClientOnly";
 import Container from "@/components/Container";
-import EmptyState from "@/components/EmptyState";
-import CharacterCard from "@/components/cards/CharacterCard";
 import LargeHeading from "@/components/ui/LargeHeading";
 import Paragraph from "@/ui/Paragraph";
-import Nav from "@/components/navbar/Nav";
-import MovingCard from "@/components/cards/MovingCard";
-import Link from "next/link";
-
 export default async function About() {
-  // const characters = await getCharacters();
-
   return (
-    <ClientOnly>
+    <div>
       <div className="relative pt-20 pb-10 md:pb-40 md:top-28 md:pt-0 flex items-center justify-center overflow-x-hidden overflow-y-hidden">
         <div className="container max-w-7xl w-full mx-auto px-10 pt-5 md:pt-0">
           <div className="gap-6 flex flex-col justify-start md:justify-center items-center ">
@@ -71,6 +60,6 @@ export default async function About() {
       <Container>
         <div className="p-3 max-w-[1536px] m-auto"></div>
       </Container>
-    </ClientOnly>
+    </div>
   );
 }

@@ -1,52 +1,9 @@
-// import Link from "next/link";
-// import Login from "./Login";
-// import { authOptions } from "../../pages/api/auth/[...nextauth]";
-// import { getServerSession } from "next-auth/next";
-
-// export default async function Nav() {
-//   const session = await getServerSession(authOptions);
-//   console.log(session);
-//   return (
-//     <nav className="flex justify-between items-center py-8">
-//       <Link href={"/"}>
-//         <h1 className="font-bold text-lg">Send it.</h1>
-//       </Link>
-//       <ul className="flex items-center gap-6">
-//         <Login />
-//       </ul>
-//     </nav>
-//   );
-// }
-
-// import { unstable_getServerSession } from "next-auth/next";
-// import { authOptions } from "../../../pages/api/auth/[...nextauth]";
-// import Login from "../../auth/Login";
-// import Link from "next/link";
-
-// export default async function Nav() {
-//   // const session = await unstable_getServerSession(authOptions);
-
-//   return (
-//     <nav className="flex justify-between items-center py-8 ">
-//       <Link href={"/"}>
-//         <h1 className="font-bold text-lg">SendIt.</h1>
-//       </Link>
-//       <ul className="flex items-center gap-6"></ul>
-//       {/* <Login /> */}
-//       {/* {!session?.user && <Login />}
-//       {session?.user && <Logged image={session.user.image || ""} />} */}
-//     </nav>
-//   );
-// }
-
 "use client";
 
 import { useEffect, useState } from "react";
 import Container from "@/components/Container";
 import Logo from "./Logo";
-import Search from "./Search";
 import UserMenu from "./UserMenu";
-import NavItem from "./NavItem";
 import NavItemContainer from "./NavItemContainer";
 
 export default function Nav() {
@@ -74,11 +31,10 @@ export default function Nav() {
       <div className="py-4">
         <Container>
           <div className="flex flex-row items-center justify-between md:gap-0">
-            <div className="flex flex-row items-center justify-between gap-10">
+            <div className="flex flex-row items-center justify-between gap-5">
               <Logo />
               <NavItemContainer isSidebar={false} />
             </div>
-            {/* <Search /> */}
             <UserMenu />
           </div>
         </Container>

@@ -1,13 +1,10 @@
 import Image from "next/image";
 import { getCharacterById, getCharacters } from "@/sanity/sanity-utils";
-import ClientOnly from "@/components/ClientOnly";
 import Container from "@/components/Container";
-import EmptyState from "@/components/EmptyState";
 import CharacterCard from "@/components/cards/CharacterCard";
 import LargeHeading from "@/components/ui/LargeHeading";
 import Paragraph from "@/ui/Paragraph";
 import MovingCard from "@/components/cards/MovingCard";
-import Link from "next/link";
 
 export default async function Home() {
   const characters = await getCharacters("title");
@@ -21,21 +18,23 @@ export default async function Home() {
   // }
 
   return (
-    <ClientOnly>
-      <div className="w-full justify-center items-center h-fit top-56 md:h-screen md:top-28 md:max-w-3xl md:left-1/2 aspect-square absolute">
+    <div>
+      <div className="w-full justify-center items-center h-fit top-28 hidden md:block md:h-screen md:top-28 md:max-w-3xl md:left-1/2 aspect-square absolute">
         <Image priority className="img-shadow pt-20 md:pt-0" quality={100} style={{ objectFit: "contain" }} fill src="/images/fool.png" alt="fool_banner" />
       </div>
-      <div className="relative pt-20 pb-48 md:pb-40 top-32 md:top-28 h-screen md:pt-0 flex items-start md:items-center justify-center overflow-x-hidden overflow-y-hidden">
+      <div className="relative pt-20 pb-48 md:pb-40 md:top-28 h-[26rem] md:h-screen md:pt-0 flex items-start md:items-center justify-center overflow-x-hidden overflow-y-hidden">
         <div className="container max-w-7xl w-full mx-auto pl-10 pr-10">
           <div className="gap-6 flex flex-col justify-start md:justify-center items-center md:items-start">
             <div className="rounded-2xl md:bg-transparent md:dark:bg-transparent z-10 p-4">
-              <LargeHeading size="default" className="three-d font-header md:text-black dark:text-light-gold pb-4">
+              {/* <LargeHeading size="default" className="three-d font-header md:text-black dark:text-light-gold pb-4">
                 Loure Illumina
+              </LargeHeading> */}
+              <LargeHeading size="default" className="three-d font-header md:text-black dark:text-light-gold pb-4">
+                LOURE ILLUMINA
               </LargeHeading>
-              <Paragraph className="max-w-xl hidden md:block md:text-left text-slate-300 md:text-slate-700 md:dark:text-slate-300">
-                In the mystical land of Aradon, a captivating card game known as "Legends of Fate" transports players into a medieval adventure. Valiant warriors, skilled archers,
-                and mystic enchanters clash in epic battles against monstrous creatures and cunning villains. With strategic mastery and a dash of luck, heroes rise, alliances
-                form, and legends are forged in this thrilling medieval card game of destiny.
+              <Paragraph className="max-w-xl block md:text-left text-slate-700 dark:text-slate-300">
+                Embark on a spiritual voyage guided by angelic forces. This tarot deck intertwines medieval aesthetics with celestial wisdom, offering profound insights and divine
+                guidance for seekers of enlightenment.
               </Paragraph>
             </div>
           </div>
@@ -65,6 +64,6 @@ export default async function Home() {
           </div>
         </div>
       </Container>
-    </ClientOnly>
+    </div>
   );
 }

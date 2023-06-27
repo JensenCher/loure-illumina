@@ -13,16 +13,16 @@ import Link from "next/link";
 export default async function TarotAngelusHome() {
   const characters = await getCharacters("title");
 
-  if (characters.length === 0) {
-    return (
-      <ClientOnly>
-        <EmptyState showReset />
-      </ClientOnly>
-    );
-  }
+  // if (characters.length === 0) {
+  //   return (
+  //     <ClientOnly>
+  //       <EmptyState showReset />
+  //     </ClientOnly>
+  //   );
+  // }
 
   return (
-    <ClientOnly>
+    <div>
       <div className="relative pt-20 pb-10 md:pb-40 md:top-28 md:pt-0 flex items-center justify-center overflow-x-hidden overflow-y-hidden">
         <div className="container max-w-7xl w-full mx-auto px-10 pt-5 md:pt-0">
           <div className="gap-6 flex flex-col justify-start md:justify-center items-center ">
@@ -30,7 +30,7 @@ export default async function TarotAngelusHome() {
               <LargeHeading size="default" className="three-d font-header md:text-black dark:text-light-gold pb-4 md:text-center">
                 LOURE ILLUMINA
               </LargeHeading>
-              <Paragraph className="max-w-2xl md:text-center text-slate-700dark:text-slate-300">
+              <Paragraph className="max-w-2xl md:text-center text-slate-700 dark:text-slate-300">
                 Embark on a spiritual voyage guided by angelic forces. This tarot deck intertwines medieval aesthetics with celestial wisdom, offering profound insights and divine
                 guidance for seekers of enlightenment.
               </Paragraph>
@@ -62,6 +62,6 @@ export default async function TarotAngelusHome() {
           </div>
         </div>
       </Container>
-    </ClientOnly>
+    </div>
   );
 }

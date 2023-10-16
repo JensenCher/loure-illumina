@@ -64,13 +64,23 @@ const character = {
       type: "url",
     },
     {
-      name: "mgColorDodgeUrl",
-      title: "MG Color Dodge URL",
+      name: "chColorDodgeUrl",
+      title: "Character Color Dodge URL",
       type: "url",
     },
     {
       name: "charUrl",
       title: "Character URL",
+      type: "url",
+    },
+    {
+      name: "colorDodge2Url",
+      title: "Color Dodge 2 URL",
+      type: "url",
+    },
+    {
+      name: "colorDodge1Url",
+      title: "Color Dodge 1 URL",
       type: "url",
     },
     {

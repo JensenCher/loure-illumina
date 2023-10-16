@@ -20,16 +20,18 @@ function scrollToTop() {
 
 const ScrollToTopContainerVariants: Variants = {
   hide: {
-    opacity: 0,
+    // opacity: 0,
     transition: {
-      duration: 0.15, // default duration for this transition
+      duration: 0.05, // default duration for this transition
     },
+    scale: 0,
   },
   show: {
     opacity: 1,
     transition: {
       duration: 0.15, // default duration for this transition
     },
+    scale: 1,
   },
 };
 
@@ -57,7 +59,8 @@ const ScrollToTopButton = () => {
 
   return (
     <motion.button
-      className="fixed bottom-[3.5rem] z-[100] right-[1.5rem] md:bottom-[5.5rem] md:right-[2.5rem] p-5 text-slate-800 hover:text-slate-100 bg-slate-400 dark:bg-slate-300 rounded-full scale-100 hover:scale-110 hover:bg-slate-500 transition duration-300"
+      className="fixed bottom-[3.5rem] z-[100] right-[1.5rem] md:bottom-[5.5rem] md:right-[2.5rem] p-5 text-slate-200 hover:text-slate-100 dark:text-[#323233]
+                bg-[#323233] dark:bg-slate-400 dark:hover:bg-slate-200 rounded-full scale-100 hover:scale-110 hover:bg-slate-500 transition duration-300"
       variants={ScrollToTopContainerVariants}
       initial="hide"
       animate={controls}

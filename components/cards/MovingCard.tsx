@@ -73,6 +73,17 @@ const MovingCard: React.FC<MovingCardProps> = ({ data, navigate = false, width =
       friction: 10,
     },
   });
+  const style4 = useSpring({
+    display: "inline-block",
+    backfaceVisibility: "hidden" as any,
+    // transform: isMoving ? `rotate(${rotation}deg)` : `rotate(0deg)`,
+    transform: isMoving ? `translate(${translate[0] * -1 * 0.1}px, ${translate[1] * -1 * 0.1}px)` : `translate(0px, 0px)`,
+    transition: `transform 100ms`,
+    config: {
+      tension: 100,
+      friction: 10,
+    },
+  });
   useEffect(() => {
     if (CardRef.current) {
       // console.log("if CardRef", CardRef.current);
@@ -109,7 +120,6 @@ const MovingCard: React.FC<MovingCardProps> = ({ data, navigate = false, width =
     setIsMoving(false);
   };
   // const dim = ["24rem", "36.5rem"];
-
   const movingCard = (
     <div className={"relative max-w-xs overflow-hidden rounded-3xl shadow-lg group bg-black " + className}>
       <div className="bg-transparent absolute top-0 left-0 z-20 w-full h-full" ref={CardRef} onMouseMove={trigger} onMouseLeave={resetMovingCard}></div>
@@ -122,9 +132,9 @@ const MovingCard: React.FC<MovingCardProps> = ({ data, navigate = false, width =
       <animated.div className={`absolute top-0 left-0 w-full h-full`} style={style2}>
         <Image src={data.mgUrl} fill alt="mg" className="w-full h-full object-contain" sizes={"50vw"} />
       </animated.div>
-      {data.mgColorDodgeUrl ? (
+      {data.chColorDodgeUrl ? (
         <animated.div className={`absolute top-0 left-0 w-full h-full mix-blend-color-dodge`} style={style2}>
-          <Image src={data.mgColorDodgeUrl} fill alt="color-dodge" className="w-full h-full object-contain" sizes={"50vw"} />
+          <Image src={data.chColorDodgeUrl} fill alt="color-dodge" className="w-full h-full object-contain" sizes={"50vw"} />
         </animated.div>
       ) : (
         <></>
@@ -133,9 +143,23 @@ const MovingCard: React.FC<MovingCardProps> = ({ data, navigate = false, width =
       <animated.div className={`absolute top-0 left-0 w-full h-full`} style={style3}>
         <Image src={data.charUrl} fill alt="ch" className="w-full h-full object-contain" sizes={"50vw"} />
       </animated.div>
-      {/* <animated.div className={`absolute top-0 left-0 w-full h-full`} style={styleBorder}>
+      {data.colorDodge2Url ? (
+        <animated.div className={`absolute top-0 left-0 w-full h-full mix-blend-color-dodge`} style={style3}>
+          <Image src={data.colorDodge2Url} fill alt="color-dodge" className="w-full h-full object-contain" sizes={"50vw"} />
+        </animated.div>
+      ) : (
+        <></>
+      )}
+      {data.colorDodge1Url ? (
+        <animated.div className={`absolute top-0 left-0 w-full h-full mix-blend-color-dodge`} style={style3}>
+          <Image src={data.colorDodge1Url} fill alt="color-dodge" className="w-full h-full object-contain" sizes={"50vw"} />
+        </animated.div>
+      ) : (
+        <></>
+      )}
+      <animated.div className={`absolute top-0 left-0 w-full h-full`} style={styleBorder}>
         <Image src={data.borderUrl} fill alt="border" className="w-full h-full object-contain" sizes={"50vw"} />
-      </animated.div> */}
+      </animated.div>
       {navigate ? (
         <div
           className="h-14 bottom-0 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition duration-300

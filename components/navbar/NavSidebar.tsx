@@ -1,9 +1,10 @@
 import { cn } from "@/lib/utils";
 import { forwardRef, HTMLAttributes, useState } from "react";
 import { motion } from "framer-motion";
-import { IoIosArrowForward } from "react-icons/io";
+import { IoClose } from "react-icons/io5";
 import NavItemContainer from "./NavItemContainer";
 import Boop from "../boop/Boop";
+import Logo from "./Logo";
 
 interface NavSidebarProps {
   isSidebar: boolean;
@@ -22,8 +23,8 @@ const NavSidebar = forwardRef<HTMLDivElement, NavSidebarProps>(({ isSidebar, isO
       },
     },
     open: {
-      width: "16rem",
-      x: 0,
+      width: "101%", // Because when Light mode the Div will be a bit smaller than the w-screen
+      x: "0.5%",
       transition: {
         damping: 40,
       },
@@ -40,17 +41,22 @@ const NavSidebar = forwardRef<HTMLDivElement, NavSidebarProps>(({ isSidebar, isO
         variants={sidebar_animation}
         animate={isOpen ? "open" : "closed"}
         className={cn([
-          `${isSidebar ? "" : "hidden"}  absolute overscroll-none right-0 w-[0] top-0 bg-slate-400 dark:bg-slate-300 text-gray shadow-xl z-[999] max-w-[16rem] h-[105vh] 
+          `${isSidebar ? "" : "hidden"}  absolute overscroll-none right-0 w-[0] top-0 bg-[#1E1E1F] text-gray shadow-xl z-[999] max-w-screen h-[105vh] 
             overflow-x-hidden scrollbar-thin scrollbar-track-slate-700 scrollbar-thumb-slate-300 md:hidden transition duration-300 rounded-bl-2xl`,
         ])}
         ref={ref}
         {...props}
       >
         {/* Close sidebar btn */}
-        <div className="absolute w-fit h-fit z-50 left-2 top-2 cursor-pointer text-black hover:opacity-70 transition duration-300" onClick={onClick}>
-          <Boop rotation={10} timing={300}>
-            <IoIosArrowForward size={25} rotate={90} title="Close" />
-          </Boop>
+        <div className="absolute w-full h-fit z-50 top-0 flex flex-row items-center justify-between p-3">
+          <div className="h-fit pt-3">
+            <Logo />
+          </div>
+          <div className="cursor-pointer text-slate-200 bg-[#323233] rounded-xl px-3 pt-3 pb-1 transition duration-300" onClick={onClick}>
+            <Boop rotation={10} timing={300}>
+              <IoClose size={25} rotate={90} title="Close" />
+            </Boop>
+          </div>
         </div>
         {/* Sidebar Items */}
         <NavItemContainer isSidebar={true} />

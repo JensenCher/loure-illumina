@@ -21,7 +21,7 @@ interface CardSquareProps {
 const CardSquare: React.FC<CardSquareProps> = ({ data, onAction, disabled, actionLabel, actionId, className }) => {
   return (
     <div className={"block col-span-1 group " + className ? className : ""}>
-      <div className="flex flex-col gap-3 w-28 md:w-48">
+      <div className="flex flex-col gap-3 w-28 md:w-44">
         <div className="relative w-full max-w-lg aspect-square overflow-hidden rounded-xl items-end">
           <Image
             fill
@@ -31,14 +31,14 @@ const CardSquare: React.FC<CardSquareProps> = ({ data, onAction, disabled, actio
             className="object-cover h-auto w-auto group-hover:scale-110 transition duration-300"
           />
           <div
-            className="h-14 bottom-0 opacity-100 transition duration-300
+            className="h-[40%] bottom-0 opacity-100 transition duration-300
               absolute w-full bg-opacity-5 bg-gradient-to-t from-black 
               rounded drop-shadow-lg 
               text-white p-5 flex justify-between
           "
           >
             <div className="absolute bottom-0 left-0 pb-1 md:pb-4 w-full group-hover">
-              <div className="font-semibold text-xxs md:text-lg px-1 flex flex-col items-center justify-center">
+              <div className="font-semibold text-xxs md:text-base px-1 flex flex-col items-center justify-center">
                 <span className="font-header">{data.name}</span>
                 <span className="block md:text-sm">{data.title}</span>
               </div>

@@ -4,6 +4,11 @@ const character = {
   type: "document",
   fields: [
     {
+      name: "order",
+      title: "Order",
+      type: "number",
+    },
+    {
       name: "title",
       title: "Title",
       type: "string",
@@ -46,42 +51,47 @@ const character = {
     {
       name: "url",
       title: "URL",
-      type: "url",
+      type: "string",
     },
     {
       name: "bgUrl",
       title: "Background URL",
-      type: "url",
+      type: "string",
     },
     {
       name: "borderUrl",
       title: "Border URL",
-      type: "url",
+      type: "string",
     },
     {
       name: "mgUrl",
       title: "MG URL",
-      type: "url",
+      type: "string",
+    },
+    {
+      name: "fgUrl",
+      title: "FG URL",
+      type: "string",
     },
     {
       name: "chColorDodgeUrl",
       title: "Character Color Dodge URL",
-      type: "url",
+      type: "string",
     },
     {
       name: "charUrl",
       title: "Character URL",
-      type: "url",
+      type: "string",
     },
     {
       name: "colorDodge2Url",
       title: "Color Dodge 2 URL",
-      type: "url",
+      type: "string",
     },
     {
       name: "colorDodge1Url",
       title: "Color Dodge 1 URL",
-      type: "url",
+      type: "string",
     },
     {
       name: "content",

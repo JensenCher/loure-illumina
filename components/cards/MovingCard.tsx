@@ -16,6 +16,14 @@ interface MovingCardProps {
   mgColorDodge?: Boolean;
 }
 
+interface cardDivObjProps {
+  field: string;
+  chOrder: number;
+  order: number;
+  chName: string;
+  usage: string;
+}
+
 // Card Dimensions 2691 / 4491 fraction
 const MovingCard: React.FC<MovingCardProps> = ({ data, navigate = false, width = "20rem", height = "33.5rem", className = "", mgColorDodge = false, children }) => {
   const CardRef = useRef<HTMLDivElement>(null);
@@ -120,26 +128,71 @@ const MovingCard: React.FC<MovingCardProps> = ({ data, navigate = false, width =
     setIsMoving(false);
   };
   // const dim = ["24rem", "36.5rem"];
+
+  //
+  // console.log("data", data);
+  const fields = ["mgUrl", "chColorDodgeUrl", "charUrl", "colorDodge2Url", "colorDodge1Url", "fgUrl"];
+  let cardDivObjs = [] as cardDivObjProps[];
+  fields.map((field: string) => {
+    if ((data as any)[field] as any) {
+      let [chOrder, order, chName, usage] = (data as any)[field].split("/").pop().split(".")[0].split("_");
+      const cardDivObj: cardDivObjProps = {
+        field: field,
+        chOrder: parseInt(chOrder),
+        order: parseInt(order),
+        chName: chName,
+        usage: usage,
+      };
+      cardDivObjs.push(cardDivObj);
+    }
+  });
+  cardDivObjs.sort((a, b) => b.order - a.order);
+  // console.log("cardDivObjs", cardDivObjs);
+  let cdStyle = 0;
+  let curStyle = 2;
+  let change = false;
+
   const movingCard = (
     <div className={"relative max-w-xs overflow-hidden rounded-3xl shadow-lg group bg-black " + className}>
       <div className="bg-transparent absolute top-0 left-0 z-20 w-full h-full" ref={CardRef} onMouseMove={trigger} onMouseLeave={resetMovingCard}></div>
       <animated.div className={`w-[${width}] h-[${height}]`} style={style1}>
         <Image src={data.bgUrl} fill alt="bg" className="w-full h-full object-contain" sizes={"50vw"} />
       </animated.div>
-      <animated.div className={`absolute top-0 left-0 w-full h-full`} style={styleBorder}>
-        <Image src={data.borderUrl} fill alt="border" className="w-full h-full object-contain" sizes={"50vw"} />
-      </animated.div>
       <animated.div className={`absolute top-0 left-0 w-full h-full`} style={style2}>
         <Image src={data.mgUrl} fill alt="mg" className="w-full h-full object-contain" sizes={"50vw"} />
       </animated.div>
-      {data.chColorDodgeUrl ? (
+      {cardDivObjs.map((obj) => {
+        let styleChosen = null;
+        if (obj.usage.includes("cd")) {
+          if (cdStyle == 0) {
+            cdStyle = curStyle;
+            change = true;
+            styleChosen = cdStyle;
+          }
+        } else {
+          if (change) {
+            curStyle += 1;
+            change = false;
+          }
+          styleChosen = curStyle;
+        }
+        return (
+          <animated.div
+            key={obj.order}
+            className={obj.usage.includes("cd") ? "absolute top-0 left-0 w-full h-full mix-blend-color-dodge" : "absolute top-0 left-0 w-full h-full"}
+            style={styleChosen == 2 ? style2 : styleChosen == 3 ? style3 : style4}
+          >
+            <Image src={(data as any)[obj.field]} fill alt={obj.usage} className={"w-full h-full object-contain"} sizes={"50vw"} />
+          </animated.div>
+        );
+      })}
+      {/* {data.chColorDodgeUrl ? (
         <animated.div className={`absolute top-0 left-0 w-full h-full mix-blend-color-dodge`} style={style2}>
           <Image src={data.chColorDodgeUrl} fill alt="color-dodge" className="w-full h-full object-contain" sizes={"50vw"} />
         </animated.div>
       ) : (
         <></>
       )}
-
       <animated.div className={`absolute top-0 left-0 w-full h-full`} style={style3}>
         <Image src={data.charUrl} fill alt="ch" className="w-full h-full object-contain" sizes={"50vw"} />
       </animated.div>
@@ -156,7 +209,7 @@ const MovingCard: React.FC<MovingCardProps> = ({ data, navigate = false, width =
         </animated.div>
       ) : (
         <></>
-      )}
+      )} */}
       <animated.div className={`absolute top-0 left-0 w-full h-full`} style={styleBorder}>
         <Image src={data.borderUrl} fill alt="border" className="w-full h-full object-contain" sizes={"50vw"} />
       </animated.div>

@@ -7,7 +7,7 @@ import Paragraph from "@/ui/Paragraph";
 import MovingCard from "@/components/cards/MovingCard";
 
 export default async function Home() {
-  const characters = await getCharacters("title");
+  const characters = await getCharacters("order");
 
   // if (characters.length === 0) {
   //   return (

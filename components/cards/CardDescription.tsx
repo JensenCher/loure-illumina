@@ -14,7 +14,7 @@ interface CardDescriptionProps {
 const CardDescription: React.FC<CardDescriptionProps> = ({ data, height = "600px" }) => {
   let pixel_h = `h-[${height}]`;
   return (
-    <div key={data._id} className={`py-5 text-black dark:text-white leading-loose relative ${pixel_h} w-[300px] md:w-[500px]`}>
+    <div key={data._id} className={`py-5 text-black dark:text-white text-justify leading-loose relative ${pixel_h} w-[300px] md:w-[500px]`}>
       <SimpleBar forceVisible="y" autoHide={false} className={`leading-loose ${pixel_h} pr-5`}>
         <PortableText value={data.description} />
       </SimpleBar>

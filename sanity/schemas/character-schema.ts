@@ -36,6 +36,13 @@ const character = {
       of: [{ type: "block" }],
     },
     {
+      name: "show",
+      title: "Show",
+      description: "Show on the webpage?",
+      type: "boolean",
+      initialValue: true,
+    },
+    {
       name: "image",
       title: "Image",
       type: "image",

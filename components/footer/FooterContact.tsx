@@ -25,8 +25,9 @@ interface contactDataProps {
 
 const FooterContact = ({ contact = {} as contactDataProps }) => {
   const [isLoading, setIsLoading] = useState(false);
+  const [sentContact, setSentContact] = useState(false);
 
-  const { register, handleSubmit, formState } = useForm({
+  const { register, handleSubmit, reset, formState } = useForm({
     defaultValues: contact,
     resolver: zodResolver(contactSchema),
   });
@@ -43,19 +44,18 @@ const FooterContact = ({ contact = {} as contactDataProps }) => {
       body: JSON.stringify(data),
     })
       .then(() => {
-        console.log(data);
+        reset();
+        setSentContact(true);
+
+        setTimeout(() => {
+          setSentContact(false);
+        }, 3000);
       })
       .catch((err) => {
         console.log(err);
       });
-    // await fetch("/api/contacts", {
-    //   method: "POST",
-    //   body: JSON.stringify({ hello: "world" }),
-    // });
 
     setIsLoading(false);
-    // axios.post('/api/register', data)
-    // .then
   };
 
   return (
@@ -99,23 +99,6 @@ const FooterContact = ({ contact = {} as contactDataProps }) => {
             <div className="text-red-600 text-xs ml-2 mt-1">{errors.email?.message}</div>
           </div>
         </div>
-        {/* <div className="relative pb-5 w-full">
-        <input
-          className="peer w-full h-10 rounded-xl p-3 py-1 bg-slate-300 dark:bg-slate-800 text-black dark:text-white
-        focus:outline-slate-100 focus:border-b-2 transition-colors placeholder-transparent"
-          {...register("contact")}
-          placeholder=" "
-        />
-        <label
-          htmlFor="contact"
-          className="absolute left-3 -top-4 text-slate-300 text-xs cursor-text transition-all
-      peer-placeholder-shown:text-base peer-placeholder-shown:text-slate-800 dark:peer-placeholder-shown:text-slate-300 peer-placeholder-shown:top-2 
-      peer-focus:-top-4 peer-focus:text-xs peer-focus:text-slate-300"
-        >
-          Contact
-        </label>
-        <div className="text-red-600 text-xs">{errors.contact?.message}</div>
-      </div> */}
         <div className="relative pb-0 w-full">
           <textarea
             className="peer w-full h-28 rounded-xl p-3 py-1 bg-slate-300 dark:bg-slate-800 text-black dark:text-white
@@ -133,6 +116,7 @@ const FooterContact = ({ contact = {} as contactDataProps }) => {
             Message
           </label>
           <div className="text-red-600 text-xs">{errors.message?.message}</div>
+          {sentContact && <div className="pt-3 pb-1">Thank you! We'll get back to you shortly.</div>}
         </div>
         <div className="flex justify-center md:justify-normal md:pb-10">
           <Button

@@ -13,7 +13,7 @@ export default async function About() {
                 <span className="block text-left text-3xl md:text-6xl">
                   ABOUT <span className="inline-block">LOURE ILLUMINA</span>
                 </span>
-                <h2 className="text-left text-xs md:text-xl font-header tracking-normal text-black dark:text-light-gold font-semibold">A World of Adventures & Mysteries Awaits</h2>
+                <p className="text-left text-xs md:text-xl font-header tracking-normal text-black dark:text-light-gold font-semibold">A World of Adventures & Mysteries Awaits</p>
               </LargeHeading>
               <div className="max-w-4xl text-left dark:text-slate-300 text-slate-900">
                 <p className="leading-8 py-3 text-justify">

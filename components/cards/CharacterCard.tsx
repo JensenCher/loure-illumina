@@ -3,52 +3,113 @@
 import { Character } from "@/types/Character";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useRef, useState, MouseEvent } from "react";
+import { useSpring } from "react-spring";
 
 interface CharacterCardProps {
   data: Character;
-  onAction?: (id: string) => void;
-  disabled?: boolean;
-  actionLabel?: string;
-  actionId?: string;
+  navigate?: Boolean;
+  className?: string;
+  width?: string;
+  height?: string;
+  children?: React.ReactNode;
+  mgColorDodge?: Boolean;
 }
 
-const CharacterCard: React.FC<CharacterCardProps> = ({ data, onAction, disabled, actionLabel, actionId }) => {
-  return (
-    <Link href={`/${data.category.slug}/${data.slug}`} className="block col-span-1 cursor-pointer group">
-      <div className="flex flex-col gap-3 w-[250px]">
-        <div className="h-[417px] w-full overflow-hidden relative rounded-2xl items-end">
-          {data.url ? (
-            <Image
-              fill
-              alt="Character"
-              src={data.url}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              className="object-cover h-auto w-auto group-hover:scale-110 transition duration-300"
-            />
-          ) : (
-            <div className="object-cover h-full w-full bg-white group-hover:scale-110 transition duration-300" />
-          )}
+interface cardDivObjProps {
+  field: string;
+  chOrder: number;
+  order: number;
+  chName: string;
+  usage: string;
+}
+
+// Card Dimensions 2691 / 4491 fraction
+const CharacterCard: React.FC<CharacterCardProps> = ({ data, navigate = false, width = "20rem", height = "33.5rem", className = "", mgColorDodge = false, children }) => {
+  // const dim = ["24rem", "36.5rem"];
+
+  const fields = ["mgUrl", "chColorDodgeUrl", "charUrl", "colorDodge2Url", "colorDodge1Url", "fgUrl"];
+  let cardDivObjs = [] as cardDivObjProps[];
+  fields.map((field: string) => {
+    if ((data as any)[field] as any) {
+      let [chOrder, order, chName, usage] = (data as any)[field].split("/").pop().split(".")[0].split("_");
+      const cardDivObj: cardDivObjProps = {
+        field: field,
+        chOrder: parseInt(chOrder),
+        order: parseInt(order),
+        chName: chName,
+        usage: usage,
+      };
+      cardDivObjs.push(cardDivObj);
+    }
+  });
+  cardDivObjs.sort((a, b) => b.order - a.order);
+  let cdStyle = 0;
+  let curStyle = 2;
+  let change = false;
+
+  const characterCard = (
+    <div className={"relative max-w-xs overflow-hidden rounded-3xl shadow-lg group bg-black " + className}>
+      <div className={`w-[${width}] h-[${height}]`}>
+        <Image src={data.bgUrl} fill alt="bg" className="w-full h-full object-contain" sizes={"50vw"} />
+      </div>
+      <div className={`absolute inset-0 top-0 left-0 w-full h-full`}>
+        <Image src={data.mgUrl} fill alt="mg" className="w-full h-full object-contain" sizes={"50vw"} />
+      </div>
+      {cardDivObjs.map((obj) => {
+        let styleChosen = null;
+        if (obj.usage && obj.usage.toLowerCase().includes("cd")) {
+          if (cdStyle == 0) {
+            cdStyle = curStyle;
+            change = true;
+            styleChosen = cdStyle;
+          }
+        } else {
+          if (change) {
+            curStyle += 1;
+            change = false;
+          }
+          styleChosen = curStyle;
+        }
+        return (
           <div
-            className="h-14 bottom-0 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition duration-300
+            key={obj.order}
+            className={obj.usage && obj.usage.toLowerCase().includes("cd") ? "absolute inset-0 top-0 left-0 mix-blend-color-dodge" : "absolute inset-0 top-0 left-0 w-full h-full"}
+          >
+            <Image src={(data as any)[obj.field]} fill alt={obj.usage} className={"w-full h-full object-contain"} sizes={"50vw"} />
+          </div>
+        );
+      })}
+      <div className={`absolute top-0 left-0 w-full h-full`}>
+        <Image src={data.borderUrl} fill alt="border" className="w-full h-full object-contain" sizes={"50vw"} />
+      </div>
+      {navigate ? (
+        <div
+          className="h-14 bottom-0 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition duration-300
                 absolute w-full bg-opacity-5 bg-gradient-to-t from-black 
                  rounded drop-shadow-lg 
                 text-white p-5 flex justify-between
             "
-          >
-            <div className="absolute bottom-0 pb-4 group-hover">
-              <div className="font-semibold text-lg px-1">
-                <span className="font-header">{data?.name}</span>
-                <span className="block text-sm">{data?.title}</span>
-              </div>
+        >
+          <div className="absolute bottom-0 pb-4 group-hover">
+            <div className="font-semibold text-lg px-1">
+              <span className="font-header">{data?.name}</span>
+              <span className="block text-sm">{data?.title}</span>
             </div>
           </div>
-          {/* Can replace the heart button with a card border */}
-          {/* <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-300">
-            <HeartButton projectId={data._id} />
-          </div> */}
         </div>
-      </div>
+      ) : (
+        <></>
+      )}
+    </div>
+  );
+
+  return navigate ? (
+    <Link href={`/${data.category.slug}/${data.slug}`} className="block col-span-1 cursor-pointer group" title={data.title}>
+      {characterCard}
     </Link>
+  ) : (
+    characterCard
   );
 };
 

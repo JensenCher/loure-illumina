@@ -6,6 +6,7 @@ import LargeHeading from "@/components/ui/LargeHeading";
 import Paragraph from "@/components/ui/Paragraph";
 import MovingCard from "@/components/cards/MovingCard";
 import CardDescription from "@/components/cards/CardDescription";
+import CharacterCard from "@/components/cards/CharacterCard";
 // import CharacterCardMoving from "@/components/characters/CharacterCardMoving";
 
 interface IParams {
@@ -31,7 +32,8 @@ const CharacterPage = async ({ params }: { params: IParams }) => {
             <div key={character._id} className="flex justify-center items-center pt-5">
               {character.charUrl ? (
                 <div>
-                  <MovingCard data={character} width="250px" height="410px"></MovingCard>
+                  {/* <MovingCard data={character} width="250px" height="410px"></MovingCard> */}
+                  <CharacterCard data={character} width="250px" height="410px"></CharacterCard>
                 </div>
               ) : character.url ? (
                 <Image width={250} height={410} className="object-contain rounded-2xl" alt="Character" src={character.url} />
@@ -39,12 +41,7 @@ const CharacterPage = async ({ params }: { params: IParams }) => {
                 <div className="object-cover h-full w-full bg-white group-hover:scale-110 transition" />
               )}
             </div>
-            {/* <div className="py-5 text-black dark:text-white leading-loose relative h-[600px] overflow-x-hidden overflow-y-auto">
-              <PortableText value={character.description} />
-            </div> */}
-            {/* <div className="h-[500px] w-[300px] md:w-[500px]"> */}
             <CardDescription data={character} />
-            {/* </div> */}
           </div>
         </div>
       </div>

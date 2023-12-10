@@ -8,21 +8,9 @@ import Icons from "@/components/Icons";
 import { FaArtstation } from "react-icons/fa";
 import FooterCol from "./FooterCol";
 import FooterContact from "./FooterContact";
+import Link from "next/link";
 
 export default function Footer() {
-  // // Change Nav color when hover
-  // const [navbar, setNavbar] = useState(false);
-  // useEffect(() => {
-  //   const changeNavbar = () => {
-  //     if (window.scrollY >= 90) {
-  //       setNavbar(true);
-  //     } else {
-  //       setNavbar(false);
-  //     }
-  //   };
-  //   window.addEventListener("scroll", changeNavbar);
-  // }, []);
-
   return (
     <div className={"w-full"}>
       <div className="py-5">
@@ -53,7 +41,7 @@ export default function Footer() {
                   </a>
                 </div>
               </div>
-              <div className="py-5 md:pt-0 md:pb-5 px-5 grid grid-cols-3 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-14 items-start justify-between">
+              <div className="py-5 md:pt-0 md:pb-5 px-5 grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-14 items-start justify-between">
                 <FooterCol
                   title={"Resources"}
                   links={[
@@ -102,11 +90,11 @@ export default function Footer() {
                       title: "4 - The Emperor",
                       path: "/loure-illumina/4-the-emperor",
                     },
-                    {
-                      type: "link",
-                      title: "999 - Mt Fuji",
-                      path: "/loure-illumina/999-mt-fuji",
-                    },
+                    // {
+                    //   type: "link",
+                    //   title: "999 - Mt Fuji",
+                    //   path: "/loure-illumina/999-mt-fuji",
+                    // },
                     {
                       type: "link",
                       title: "More...",
@@ -114,7 +102,7 @@ export default function Footer() {
                     },
                   ]}
                 />
-                <FooterCol
+                {/* <FooterCol
                   title={"Progress"}
                   links={[
                     {
@@ -128,7 +116,7 @@ export default function Footer() {
                       path: "/loure-illumina",
                     },
                   ]}
-                />
+                /> */}
               </div>
             </div>
             <div className="pt-10 pb-5 flex flex-col md:flex-row justify-between text-slate-400 gap-5">
@@ -147,7 +135,12 @@ export default function Footer() {
                 </a>
               </div>
               <div>Copyright &#169; 2023 Ariel Ramsey Poh</div>
-              <div>Developed by Jensen Cher</div>
+              <div>
+                Developed by{" "}
+                <Link href={"https://jensencher-v1.vercel.app/"} target="_blank" className="hover:text-white font-semibold duration-300">
+                  Jensen Cher
+                </Link>
+              </div>
             </div>
           </div>
         </Container>

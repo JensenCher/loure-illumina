@@ -22,12 +22,12 @@ export default async function Team() {
     },
     {
       name: "Marcus",
-      title: "Storyboard Designer",
+      title: "Lead Writer",
       image: null,
     },
     {
       name: "Darren Chang",
-      title: "Storyboard, Designer",
+      title: "Lead Writer",
       image: null,
     },
     {

@@ -9,6 +9,7 @@ export type Character = {
   name: string;
   race: string;
   description: PortableTextBlock[];
+  show: boolean;
   image: string;
   category: Category;
   url: string;

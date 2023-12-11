@@ -13,11 +13,14 @@ interface CardDescriptionProps {
 
 const CardDescription: React.FC<CardDescriptionProps> = ({ data, height = "600px" }) => {
   let pixel_h = `h-[${height}]`;
+  pixel_h = `sm:h-[600px]`;
   return (
-    <div key={data._id} className={`py-5 text-black dark:text-white text-justify leading-loose relative ${pixel_h} w-[300px] md:w-[500px]`}>
-      <SimpleBar forceVisible="y" autoHide={false} className={`leading-loose ${pixel_h} pr-5`}>
-        <PortableText value={data.description} />
-      </SimpleBar>
+    <div className="flex items-center justify-center">
+      <div key={data._id} className={`py-5 text-black dark:text-white text-justify leading-loose relative ${pixel_h} w-full max-w-[500px]`}>
+        <SimpleBar forceVisible="y" autoHide={false} className={`leading-loose ${pixel_h} w-full pr-5`}>
+          <PortableText value={data.description} />
+        </SimpleBar>
+      </div>
     </div>
   );
 };

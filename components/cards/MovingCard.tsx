@@ -144,11 +144,13 @@ const MovingCard: React.FC<MovingCardProps> = ({ data, navigate = false, width =
   let cdStyle = 0;
   let curStyle = 2;
   let change = false;
+  const twWidth = `w-[250px]`;
+  const twHeight = `h-[410px]`;
 
   const movingCard = (
     <div className={"relative max-w-xs overflow-hidden rounded-3xl shadow-lg group bg-black " + className}>
       <div className="bg-transparent absolute inset-0 top-0 left-0 z-20 w-full h-full" ref={CardRef} onMouseMove={trigger} onMouseLeave={resetMovingCard}></div>
-      <animated.div className={`w-[${width}] h-[${height}]`} style={style1}>
+      <animated.div className={`${twWidth} ${twHeight}`} style={style1}>
         <Image src={data.bgUrl} fill alt="bg" className="w-full h-full object-contain" sizes={"50vw"} />
       </animated.div>
       <animated.div className={`absolute inset-0 top-0 left-0 w-full h-full`} style={style2}>

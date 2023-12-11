@@ -47,10 +47,12 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ data, navigate = false, w
   let cdStyle = 0;
   let curStyle = 2;
   let change = false;
+  const twWidth = `w-[250px]`;
+  const twHeight = `h-[410px]`;
 
   const characterCard = (
     <div className={"relative max-w-xs overflow-hidden rounded-3xl shadow-lg group bg-black " + className}>
-      <div className={`w-[${width}] h-[${height}]`}>
+      <div className={`${twWidth} ${twHeight}`}>
         <Image src={data.bgUrl} fill alt="bg" className="w-full h-full object-contain" sizes={"50vw"} />
       </div>
       <div className={`absolute inset-0 top-0 left-0 w-full h-full`}>

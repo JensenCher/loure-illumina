@@ -36,6 +36,20 @@ const character = {
       of: [{ type: "block" }],
     },
     {
+      name: "writtenBy",
+      title: "Written By",
+      type: "array",
+      description: "The Writers",
+      of: [{ type: "string" }],
+    },
+    {
+      name: "editedBy",
+      title: "Edited By",
+      type: "array",
+      description: "The Editors",
+      of: [{ type: "string" }],
+    },
+    {
       name: "show",
       title: "Show",
       description: "Show on the webpage?",

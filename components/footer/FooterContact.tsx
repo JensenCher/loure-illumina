@@ -78,7 +78,7 @@ const FooterContact = ({ contact = {} as contactDataProps }) => {
             >
               Name
             </label>
-            <div className="text-red-600 text-xs ml-2 mt-1">{errors.name?.message}</div>
+            <div className="text-red-400 text-xs ml-2 mt-1">{errors.name?.message}</div>
           </div>
           <div className="relative w-full">
             <input
@@ -96,7 +96,7 @@ const FooterContact = ({ contact = {} as contactDataProps }) => {
             >
               Email
             </label>
-            <div className="text-red-600 text-xs ml-2 mt-1">{errors.email?.message}</div>
+            <div className="text-red-400 text-xs ml-2 mt-1">{errors.email?.message}</div>
           </div>
         </div>
         <div className="relative pb-0 w-full">
@@ -115,14 +115,14 @@ const FooterContact = ({ contact = {} as contactDataProps }) => {
           >
             Message
           </label>
-          <div className="text-red-600 text-xs">{errors.message?.message}</div>
+          <div className="text-red-400 text-xs">{errors.message?.message}</div>
           {sentContact && <div className="pt-3 pb-1">Thank you! We'll get back to you shortly.</div>}
         </div>
         <div className="flex justify-center md:justify-normal md:pb-10">
           <Button
             variant="ghost"
             size="sm"
-            className={"py-5 px-3 border dark:border-slate-800 transition-all hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100 group"}
+            className={"py-5 px-3 border dark:border-slate-800 transition-all hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100 group duration-300"}
             title="Contact"
             isLoading={isLoading}
           >

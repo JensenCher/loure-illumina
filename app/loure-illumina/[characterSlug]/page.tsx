@@ -38,7 +38,19 @@ const CharacterPage = async ({ params }: { params: IParams }) => {
                 <div className="object-cover h-full w-full bg-white group-hover:scale-110 transition" />
               )}
             </div>
-            <CardDescription data={character} />
+            <div className="flex flex-col gap-10 w-full">
+              <CardDescription data={character} />
+              <div className="flex flex-col gap-1 w-full">
+                <div className="flex flex-row flex-wrap gap-3">
+                  <h3>Written By:</h3>
+                  <span>{character.writtenBy && character.writtenBy.join(", ")}</span>
+                </div>
+                <div className="flex flex-row flex-wrap gap-3">
+                  <h3>Edited By:</h3>
+                  <span>{character.editedBy && character.editedBy.join(", ")}</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

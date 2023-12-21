@@ -2,6 +2,7 @@ import { PortableTextBlock } from "sanity";
 import { Category } from "./Category";
 
 export type Character = {
+  [key: string]: string | string[] | Date | PortableTextBlock[] | boolean | Category | undefined;
   _id: string;
   _createdAt: Date;
   title: string;
@@ -9,6 +10,8 @@ export type Character = {
   name: string;
   race: string;
   description: PortableTextBlock[];
+  writtenBy: string[];
+  editedBy: string[];
   show: boolean;
   image: string;
   category: Category;

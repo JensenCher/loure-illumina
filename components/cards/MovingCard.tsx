@@ -12,8 +12,8 @@ interface MovingCardProps {
   className?: string;
   width?: string;
   height?: string;
+  onImagesLoaded: () => void;
   children?: React.ReactNode;
-  mgColorDodge?: Boolean;
 }
 
 interface cardDivObjProps {
@@ -25,7 +25,26 @@ interface cardDivObjProps {
 }
 
 // Card Dimensions 2691 / 4491 fraction
-const MovingCard: React.FC<MovingCardProps> = ({ data, navigate = false, width = "20rem", height = "33.5rem", className = "", mgColorDodge = false, children }) => {
+const MovingCard: React.FC<MovingCardProps> = ({ data, navigate = false, width = "20rem", height = "33.5rem", className = "", onImagesLoaded, children }) => {
+  // Check if all images are loaded
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+  const [loadedImageCount, setLoadedImageCount] = useState(0);
+  // Dynamic calculation of totalImageCount based on available data
+  const fields = ["mgUrl", "chColorDodgeUrl", "charUrl", "colorDodge2Url", "colorDodge1Url", "fgUrl"];
+  const totalImageCount = fields.reduce((count, field) => (data[field] && typeof data[field] === "string" ? count + 1 : count), 0) + 2;
+
+  const handleImageLoad = () => {
+    setLoadedImageCount((prevCount) => prevCount + 1);
+  };
+  useEffect(() => {
+    if (loadedImageCount === totalImageCount) {
+      setImagesLoaded(true);
+      if (onImagesLoaded) {
+        onImagesLoaded();
+      }
+    }
+  }, [loadedImageCount, totalImageCount]);
+
   const CardRef = useRef<HTMLDivElement>(null);
   // span left & right & width
   const [spanBounds, setSpanBounds] = useState({} as DOMRect);
@@ -125,7 +144,7 @@ const MovingCard: React.FC<MovingCardProps> = ({ data, navigate = false, width =
   };
   // const dim = ["24rem", "36.5rem"];
 
-  const fields = ["mgUrl", "chColorDodgeUrl", "charUrl", "colorDodge2Url", "colorDodge1Url", "fgUrl"];
+  // const fields = ["mgUrl", "chColorDodgeUrl", "charUrl", "colorDodge2Url", "colorDodge1Url", "fgUrl"];
   let cardDivObjs = [] as cardDivObjProps[];
   fields.map((field: string) => {
     if ((data as any)[field] as any) {
@@ -148,14 +167,14 @@ const MovingCard: React.FC<MovingCardProps> = ({ data, navigate = false, width =
   const twHeight = `h-[410px]`;
 
   const movingCard = (
-    <div className={"relative max-w-xs overflow-hidden rounded-3xl shadow-lg group bg-black " + className}>
+    <div className={`relative max-w-xs overflow-hidden rounded-3xl shadow-lg group bg-black ${imagesLoaded ? "block" : "hidden"} ` + className}>
       <div className="bg-transparent absolute inset-0 top-0 left-0 z-20 w-full h-full" ref={CardRef} onMouseMove={trigger} onMouseLeave={resetMovingCard}></div>
       <animated.div className={`${twWidth} ${twHeight}`} style={style1}>
-        <Image src={data.bgUrl} fill alt="bg" className="w-full h-full object-contain" sizes={"50vw"} />
+        <Image src={data.bgUrl} fill alt="bg" className="w-full h-full object-contain" sizes={"50vw"} onLoad={handleImageLoad} />
       </animated.div>
-      <animated.div className={`absolute inset-0 top-0 left-0 w-full h-full`} style={style2}>
-        <Image src={data.mgUrl} fill alt="mg" className="w-full h-full object-contain" sizes={"50vw"} />
-      </animated.div>
+      {/* <animated.div className={`absolute inset-0 top-0 left-0 w-full h-full`} style={style2}>
+        <Image src={data.mgUrl} fill alt="mg" className="w-full h-full object-contain" sizes={"50vw"} onLoad={handleImageLoad} />
+      </animated.div> */}
       {cardDivObjs.map((obj) => {
         let styleChosen = null;
         if (obj.usage && obj.usage.toLowerCase().includes("cd")) {
@@ -177,20 +196,20 @@ const MovingCard: React.FC<MovingCardProps> = ({ data, navigate = false, width =
             className={obj.usage && obj.usage.toLowerCase().includes("cd") ? "absolute inset-0 top-0 left-0 mix-blend-color-dodge" : "absolute inset-0 top-0 left-0 w-full h-full"}
             style={styleChosen == 2 ? style2 : styleChosen == 3 ? style3 : style4}
           >
-            <Image src={(data as any)[obj.field]} fill alt={obj.usage} className={"w-full h-full object-contain"} sizes={"50vw"} />
+            <Image src={(data as any)[obj.field]} fill alt={obj.usage} className={"w-full h-full object-contain"} sizes={"50vw"} onLoad={handleImageLoad} />
           </animated.div>
         );
       })}
       <animated.div className={`absolute top-0 left-0 w-full h-full`} style={styleBorder}>
-        <Image src={data.borderUrl} fill alt="border" className="w-full h-full object-contain" sizes={"50vw"} />
+        <Image src={data.borderUrl} fill alt="border" className="w-full h-full object-contain" sizes={"50vw"} onLoad={handleImageLoad} />
       </animated.div>
       {navigate ? (
         <div
-          className="h-14 bottom-0 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition duration-300
+          className={`h-14 bottom-0 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition duration-300
                 absolute w-full bg-opacity-5 bg-gradient-to-t from-black 
                  rounded drop-shadow-lg 
                 text-white p-5 flex justify-between
-            "
+            `}
         >
           <div className="absolute bottom-0 pb-4 group-hover">
             <div className="font-semibold text-lg px-1">

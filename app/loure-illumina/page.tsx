@@ -9,6 +9,7 @@ import Paragraph from "@/ui/Paragraph";
 import Nav from "@/components/navbar/Nav";
 import MovingCard from "@/components/cards/MovingCard";
 import Link from "next/link";
+import WhichCard from "@/components/cards/WhichCard";
 
 export default async function TarotAngelusHome() {
   const characters = await getCharacters("title");
@@ -44,7 +45,8 @@ export default async function TarotAngelusHome() {
             {characters.map((character) => {
               if (character.show) {
                 return character.charUrl ? (
-                  <MovingCard data={character} width="250px" height="410px" navigate={true}></MovingCard>
+                  // <MovingCard data={character} width="250px" height="410px" navigate={true}></MovingCard>
+                  <WhichCard character={character} navigate={true} />
                 ) : character.url ? (
                   <CharacterCard data={character} />
                 ) : (

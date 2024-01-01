@@ -12,7 +12,7 @@ interface MovingCardProps {
   className?: string;
   width?: string;
   height?: string;
-  onImagesLoaded: () => void;
+  onImagesLoaded?: () => void;
   children?: React.ReactNode;
 }
 
@@ -25,7 +25,7 @@ interface cardDivObjProps {
 }
 
 // Card Dimensions 2691 / 4491 fraction
-const MovingCard: React.FC<MovingCardProps> = ({ data, navigate = false, width = "20rem", height = "33.5rem", className = "", onImagesLoaded, children }) => {
+const MovingCard: React.FC<MovingCardProps> = ({ data, navigate = false, width = "20rem", height = "33.5rem", className = "", onImagesLoaded = () => {}, children }) => {
   // Check if all images are loaded
   const [imagesLoaded, setImagesLoaded] = useState(false);
   const [loadedImageCount, setLoadedImageCount] = useState(0);

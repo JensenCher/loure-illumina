@@ -40,7 +40,7 @@ const CharacterPage = async ({ params }: { params: IParams }) => {
             </div>
             <div className="flex flex-col gap-10 w-full">
               <CardDescription data={character} />
-              <div className="flex flex-col gap-1 w-full">
+              <div className="mt-5 flex flex-col gap-1 w-full text-black dark:text-white">
                 <div className="flex flex-row flex-wrap gap-3">
                   <h3>Written By:</h3>
                   <span>{character.writtenBy && character.writtenBy.join(", ")}</span>

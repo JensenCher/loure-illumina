@@ -3,8 +3,10 @@ import CardDescription from "@/components/cards/CardDescription";
 import WhichCard from "@/components/cards/WhichCard";
 import LargeHeading from "@/components/ui/LargeHeading";
 import Paragraph from "@/components/ui/Paragraph";
-import { getCharacterBySlug } from "@/sanity/sanity-utils";
+import { convertToRoman } from "@/lib/utils";
+import { getCharacterBySlug, prevNextCharacterByOrder } from "@/sanity/sanity-utils";
 import Image from "next/image";
+import Link from "next/link";
 
 interface IParams {
   characterSlug?: string;
@@ -12,6 +14,23 @@ interface IParams {
 
 const CharacterPage = async ({ params }: { params: IParams }) => {
   const character = await getCharacterBySlug(params.characterSlug as string);
+  let prevChar = null;
+  let nextChar = null;
+  if (params.characterSlug) {
+    const characterOrder = params.characterSlug.split("-")[0];
+    const prevNextCharacters = await prevNextCharacterByOrder(characterOrder);
+
+    if (prevNextCharacters.length == 2) {
+      [prevChar, nextChar] = prevNextCharacters;
+    } else {
+      const returnChar = prevNextCharacters[0];
+      if (returnChar.order > parseInt(characterOrder)) {
+        nextChar = returnChar;
+      } else {
+        prevChar = returnChar;
+      }
+    }
+  }
 
   if (!character) {
     return <Container>Nothing in here</Container>;
@@ -49,6 +68,30 @@ const CharacterPage = async ({ params }: { params: IParams }) => {
                   <h3>Edited By:</h3>
                   <span>{character.editedBy && character.editedBy.join(", ")}</span>
                 </div>
+              </div>
+            </div>
+          </div>
+          <div className="mt-20 w-full max-w-[1000px] grid grid-cols-1 md:grid-cols-2 gap-5 pt-0 md:pt-10">
+            <div className="col-span-2 grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div>
+                {prevChar && (
+                  <Link
+                    href={`/loure-illumina/${prevChar.slug}`}
+                    className="w-fit text-xl p-3 flex items-center justify-start flex-shrink-0 gap-3 group transition text-slate-700 dark:text-slate-400 hover:text-black hover:dark:text-white duration-300"
+                  >
+                    <span className="group-hover:-translate-x-1 duration-300 transition-transform text-3xl">&larr;</span> <span className="tracking-wide">{prevChar.title}</span>
+                  </Link>
+                )}
+              </div>
+              <div className="flex justify-end">
+                {nextChar && (
+                  <Link
+                    href={`/loure-illumina/${nextChar.slug}`}
+                    className="w-fit text-xl p-3 flex items-center justify-end flex-shrink-0 gap-3 group text-slate-700 dark:text-slate-400 hover:text-black hover:dark:text-white duration-300"
+                  >
+                    <span className="tracking-wide">{nextChar.title}</span> <span className="group-hover:translate-x-1 duration-300 transition-transform text-3xl">&rarr;</span>
+                  </Link>
+                )}
               </div>
             </div>
           </div>

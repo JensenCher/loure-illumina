@@ -114,6 +114,25 @@ export async function getCharacterBySlug(slug: string): Promise<Character> {
   );
 }
 
+export async function prevNextCharacterByOrder(order: string): Promise<Character[]> {
+  const prevOrder = parseInt(order) - 1;
+  const nextOrder = parseInt(order) + 1;
+  return client.fetch(
+    groq`*[_type=="character" &&( order==$prevOrder || order==$nextOrder)]{
+        _id,
+        _createdAt,
+        order,
+        title,
+        "slug": slug.current,
+        name,
+        race,
+    } | order(order asc)`,
+    { prevOrder, nextOrder }
+  );
+}
+
+
+
 // export async function createComment(slug: string): Promise<Character> {
 //   return client.fetch(
 //     groq`*[_type=="character" && slug.current==$slug][0]{

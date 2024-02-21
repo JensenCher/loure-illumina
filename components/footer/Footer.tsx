@@ -134,7 +134,7 @@ export default function Footer() {
                   <Icons.Mail className="hover:text-white transition duration-300  cursor-pointer" />
                 </a>
               </div>
-              <div>Copyright &#169; 2023 Ariel Ramsey Poh</div>
+              <div>Copyright &#169; {new Date().getFullYear()} Ariel Ramsey Poh</div>
               <div>
                 Developed by{" "}
                 <Link href={"https://jensencher-v1.vercel.app/"} target="_blank" className="hover:text-white font-semibold duration-300">

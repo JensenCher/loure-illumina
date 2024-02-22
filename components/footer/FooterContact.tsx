@@ -61,10 +61,10 @@ const FooterContact = ({ contact = {} as contactDataProps }) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="flex flex-col gap-5">
-        <div className="flex flex-row gap-3 pb-2">
+        <div className="flex flex-row gap-3 pb-3">
           <div className="relative w-full">
             <input
-              className="peer w-full h-10 rounded-xl p-3 py-1 text-sm bg-slate-300 dark:bg-slate-800 text-black dark:text-white
+              className="peer w-full h-10 rounded-xl p-3 py-1 text-xs bg-slate-300 dark:bg-slate-800 text-black dark:text-white
         outline-none transition-colors placeholder-transparent disabled:opacity-50 disabled:cursor-not-allowed"
               {...register("name")}
               placeholder=" "
@@ -72,13 +72,13 @@ const FooterContact = ({ contact = {} as contactDataProps }) => {
             />
             <label
               htmlFor="name"
-              className="absolute left-3 -top-4 text-slate-300 text-xs cursor-text transition-all
-            peer-placeholder-shown:text-base peer-placeholder-shown:text-slate-800 dark:peer-placeholder-shown:text-slate-300 peer-placeholder-shown:top-2 
-            peer-focus:-top-4 peer-focus:text-xs peer-focus:text-slate-300"
+              className="absolute left-3 -top-4 text-slate-100 text-xs cursor-text transition-all
+            peer-placeholder-shown:text-base peer-placeholder-shown:text-slate-800 dark:peer-placeholder-shown:text-slate-100 peer-placeholder-shown:top-2 
+            peer-focus:-top-4 peer-focus:text-xs peer-focus:text-slate-100"
             >
               Name
             </label>
-            <div className="text-red-400 text-xs ml-2 mt-1">{errors.name?.message}</div>
+            <div className="absolute top-full text-red-200 dark:text-red-400 text-xs ml-2 mt-1">{errors.name?.message}</div>
           </div>
           <div className="relative w-full">
             <input
@@ -90,18 +90,18 @@ const FooterContact = ({ contact = {} as contactDataProps }) => {
             />
             <label
               htmlFor="email"
-              className="absolute left-3 -top-4 text-slate-300 text-xs cursor-text transition-all
-      peer-placeholder-shown:text-base peer-placeholder-shown:text-slate-800 dark:peer-placeholder-shown:text-slate-300 peer-placeholder-shown:top-2 
-      peer-focus:-top-4 peer-focus:text-xs peer-focus:text-slate-300"
+              className="absolute left-3 -top-4 text-slate-100 text-xs cursor-text transition-all
+      peer-placeholder-shown:text-base peer-placeholder-shown:text-slate-800 dark:peer-placeholder-shown:text-slate-100 peer-placeholder-shown:top-2 
+      peer-focus:-top-4 peer-focus:text-xs peer-focus:text-slate-100"
             >
               Email
             </label>
-            <div className="text-red-400 text-xs ml-2 mt-1">{errors.email?.message}</div>
+            <div className="absolute top-full text-red-200 dark:text-red-400 text-xs ml-2 mt-1">{errors.email?.message}</div>
           </div>
         </div>
         <div className="relative pb-0 w-full">
           <textarea
-            className="peer w-full h-28 rounded-xl p-3 py-1 bg-slate-300 dark:bg-slate-800 text-black dark:text-white
+            className="peer w-full h-28 rounded-xl p-3 py-2 bg-slate-300 dark:bg-slate-800 text-black text-xs dark:text-white
         focus:outline-slate-100 focus:border-b-2 transition-colors placeholder-transparent resize-none disabled:opacity-50 disabled:cursor-not-allowed"
             {...register("message")}
             placeholder=" "
@@ -109,13 +109,13 @@ const FooterContact = ({ contact = {} as contactDataProps }) => {
           />
           <label
             htmlFor="message"
-            className="absolute left-3 -top-4 text-slate-300 text-xs cursor-text transition-all
-          peer-placeholder-shown:text-base peer-placeholder-shown:text-slate-800 dark:peer-placeholder-shown:text-slate-300 peer-placeholder-shown:top-2 
-          peer-focus:-top-4 peer-focus:text-xs peer-focus:text-slate-300"
+            className="absolute left-3 -top-4 text-slate-100 text-xs cursor-text transition-all
+          peer-placeholder-shown:text-base peer-placeholder-shown:text-slate-800 dark:peer-placeholder-shown:text-slate-100 peer-placeholder-shown:top-2 
+          peer-focus:-top-4 peer-focus:text-xs peer-focus:text-slate-100"
           >
             Message
           </label>
-          <div className="text-red-400 text-xs">{errors.message?.message}</div>
+          <div className="absolute top-full text-red-200 dark:text-red-400 text-xs">{errors.message?.message}</div>
           {sentContact && <div className="pt-3 pb-1">Thank you! We'll get back to you shortly.</div>}
         </div>
         <div className="flex justify-center md:justify-normal md:pb-10">

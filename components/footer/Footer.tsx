@@ -12,7 +12,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <div className={"w-full"}>
+    <div className={"w-full pt-40 bg-gradient-to-b from-transparent to-black"}>
       <div className="py-5">
         <Container>
           <div className="py-5 border-t-2 border-slate-100 dark:border-slate-500">

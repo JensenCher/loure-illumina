@@ -46,7 +46,9 @@ export default async function TarotAngelusHome() {
               if (character.show) {
                 return character.charUrl ? (
                   // <MovingCard data={character} width="250px" height="410px" navigate={true}></MovingCard>
-                  <WhichCard character={character} navigate={true} />
+                  <div className="w-[250px] h-[410px]">
+                    <WhichCard character={character} navigate={true} />
+                  </div>
                 ) : character.url ? (
                   <CharacterCard data={character} />
                 ) : (

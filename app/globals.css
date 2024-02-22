@@ -21,11 +21,12 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(170, 170, 170, 1) 40%, rgba(240, 240, 240, 1) 100%);
+  background: rgba(240, 240, 240, 1);
+  /* background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(170, 170, 170, 1) 40%, rgba(240, 240, 240, 1) 100%); */
 }
 .dark body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom, transparent 40%, rgba(0, 0, 0, 1));
+  /* background: linear-gradient(to bottom, transparent 40%, rgba(0, 0, 0, 1)); */
 }
 /* background: linear-gradient(to bottom, transparent 40%, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb)) 60%; */
 

@@ -35,6 +35,8 @@ const CharacterPage = async ({ params }: { params: IParams }) => {
   if (!character) {
     return <Container>Nothing in here</Container>;
   }
+
+  const aspectRatio = `aspect-[250/410]`;
   return (
     <Container>
       <div className="relative pt-20 pb-40 md:top-28 md:pt-0 flex items-center justify-center overflow-x-hidden overflow-y-hidden">
@@ -48,25 +50,27 @@ const CharacterPage = async ({ params }: { params: IParams }) => {
           <div className="w-full max-w-[1000px] grid grid-cols-1 md:grid-cols-2 gap-5 pt-0 md:pt-10">
             <div key={character._id} className="flex justify-center items-center pt-5">
               {character.charUrl ? (
-                <div>
+                <div className="w-full h-full">
                   <WhichCard character={character} />
                 </div>
               ) : character.url ? (
-                <Image width={250} height={410} className="object-contain rounded-2xl" alt="Character" src={character.url} />
+                <Image className={`w-full h-full ${aspectRatio} object-contain rounded-2xl`} fill alt="Character" src={character.url} />
               ) : (
                 <div className="object-cover h-full w-full bg-white group-hover:scale-110 transition" />
               )}
             </div>
             <div className="flex flex-col gap-10 w-full">
               <CardDescription data={character} />
-              <div className="mt-5 flex flex-col gap-1 w-full text-black dark:text-white">
-                <div className="flex flex-row flex-wrap gap-3">
-                  <h3>Written By:</h3>
-                  <span>{character.writtenBy && character.writtenBy.join(", ")}</span>
-                </div>
-                <div className="flex flex-row flex-wrap gap-3">
-                  <h3>Edited By:</h3>
-                  <span>{character.editedBy && character.editedBy.join(", ")}</span>
+              <div className="flex items-center justify-center w-full mt-5 border-t-2 border-t-slate-300 dark:border-t-slate-600">
+                <div className="mt-5 flex flex-col gap-1 w-full text-black dark:text-white max-w-[500px]">
+                  <div className="flex flex-row flex-wrap gap-3">
+                    <h3>Written By:</h3>
+                    <span>{character.writtenBy && character.writtenBy.join(", ")}</span>
+                  </div>
+                  <div className="flex flex-row flex-wrap gap-3">
+                    <h3>Edited By:</h3>
+                    <span>{character.editedBy && character.editedBy.join(", ")}</span>
+                  </div>
                 </div>
               </div>
             </div>

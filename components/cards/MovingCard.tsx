@@ -163,11 +163,12 @@ const MovingCard: React.FC<MovingCardProps> = ({ data, navigate = false, width =
   let cdStyle = 0;
   let curStyle = 2;
   let change = false;
-  const twWidth = `w-[250px]`;
-  const twHeight = `h-[410px]`;
+  const twWidth = `w-[100%]`;
+  const twHeight = `h-[100%]`;
+  const aspectRatio = `aspect-[250/410]`;
 
   const movingCard = (
-    <div className={`relative max-w-xs overflow-hidden rounded-3xl shadow-lg group bg-black ${imagesLoaded ? "block" : "hidden"} ` + className}>
+    <div className={`relative w-full h-full ${aspectRatio} overflow-hidden rounded-[1.8rem] shadow-lg group bg-black ${imagesLoaded ? "block" : "hidden"} ` + className}>
       <div className="bg-transparent absolute inset-0 top-0 left-0 z-20 w-full h-full" ref={CardRef} onMouseMove={trigger} onMouseLeave={resetMovingCard}></div>
       <animated.div className={`${twWidth} ${twHeight}`} style={style1}>
         <Image src={data.bgUrl} fill alt="bg" className="w-full h-full object-contain" sizes={"50vw"} onLoad={handleImageLoad} />
@@ -225,7 +226,7 @@ const MovingCard: React.FC<MovingCardProps> = ({ data, navigate = false, width =
   );
 
   return navigate ? (
-    <Link href={`/${data.category.slug}/${data.slug}`} className="block col-span-1 cursor-pointer group" title={data.title}>
+    <Link href={`/${data.category.slug}/${data.slug}`} className="block col-span-1 cursor-pointer group w-full h-full" title={data.title}>
       {movingCard}
     </Link>
   ) : (

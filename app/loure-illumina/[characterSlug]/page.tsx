@@ -87,7 +87,7 @@ const CharacterPage = async ({ params }: { params: IParams }) => {
                   </Link>
                 )}
               </div>
-              <div className="flex justify-end">
+              <div className="flex justify-end pagecheck">
                 {nextChar && (
                   <Link
                     href={`/loure-illumina/${nextChar.slug}`}

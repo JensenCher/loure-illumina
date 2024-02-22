@@ -19,6 +19,8 @@ const CharacterPage = async ({ params }: { params: IParams }) => {
   if (params.characterSlug) {
     const characterOrder = params.characterSlug.split("-")[0];
     const prevNextCharacters = await prevNextCharacterByOrder(characterOrder);
+    console.log("characterOrder", characterOrder);
+    console.log("prevNextCharacters", prevNextCharacters);
 
     if (prevNextCharacters.length == 2) {
       [prevChar, nextChar] = prevNextCharacters;
@@ -30,6 +32,9 @@ const CharacterPage = async ({ params }: { params: IParams }) => {
         prevChar = returnChar;
       }
     }
+    console.log("prevChar", prevChar);
+    console.log("nextChar", nextChar);
+    console.log("------------------");
   }
 
   if (!character) {

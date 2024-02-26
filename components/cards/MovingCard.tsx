@@ -168,60 +168,64 @@ const MovingCard: React.FC<MovingCardProps> = ({ data, navigate = false, width =
   const aspectRatio = `aspect-[250/410]`;
 
   const movingCard = (
-    <div className={`relative w-full h-full ${aspectRatio} overflow-hidden rounded-[1.8rem] shadow-lg group bg-black ${imagesLoaded ? "block" : "hidden"} ` + className}>
-      <div className="bg-transparent absolute inset-0 top-0 left-0 z-20 w-full h-full" ref={CardRef} onMouseMove={trigger} onMouseLeave={resetMovingCard}></div>
-      <animated.div className={`${twWidth} ${twHeight}`} style={style1}>
-        <Image src={data.bgUrl} fill alt="bg" className="w-full h-full object-contain" sizes={"50vw"} onLoad={handleImageLoad} />
-      </animated.div>
-      {/* <animated.div className={`absolute inset-0 top-0 left-0 w-full h-full`} style={style2}>
-        <Image src={data.mgUrl} fill alt="mg" className="w-full h-full object-contain" sizes={"50vw"} onLoad={handleImageLoad} />
-      </animated.div> */}
-      {cardDivObjs.map((obj) => {
-        let styleChosen = null;
-        if (obj.usage && obj.usage.toLowerCase().includes("cd")) {
-          if (cdStyle == 0) {
-            cdStyle = curStyle;
-            change = true;
-            styleChosen = cdStyle;
+    <div className="flex w-full h-full rounded-[1.8rem] overflow-hidden transform translate-z-0">
+      <div className={`relative w-full h-full ${aspectRatio} overflow-hidden rounded-[1.8rem] shadow-lg group bg-black ${imagesLoaded ? "block" : "hidden"} ` + className}>
+        <div className="bg-transparent absolute inset-0 top-0 left-0 z-20 w-full h-full" ref={CardRef} onMouseMove={trigger} onMouseLeave={resetMovingCard}></div>
+        <animated.div className={`${twWidth} ${twHeight}`} style={style1}>
+          <Image src={data.bgUrl} fill alt="bg" className="w-full h-full object-contain" sizes={"50vw"} priority={true} onLoad={handleImageLoad} />
+        </animated.div>
+        {/* <animated.div className={`absolute inset-0 top-0 left-0 w-full h-full`} style={style2}>
+          <Image src={data.mgUrl} fill alt="mg" className="w-full h-full object-contain" sizes={"50vw"} onLoad={handleImageLoad} />
+        </animated.div> */}
+        {cardDivObjs.map((obj) => {
+          let styleChosen = null;
+          if (obj.usage && obj.usage.toLowerCase().includes("cd")) {
+            if (cdStyle == 0) {
+              cdStyle = curStyle;
+              change = true;
+              styleChosen = cdStyle;
+            }
+          } else {
+            if (change) {
+              curStyle += 1;
+              change = false;
+            }
+            styleChosen = curStyle;
           }
-        } else {
-          if (change) {
-            curStyle += 1;
-            change = false;
-          }
-          styleChosen = curStyle;
-        }
-        return (
-          <animated.div
-            key={obj.order}
-            className={obj.usage && obj.usage.toLowerCase().includes("cd") ? "absolute inset-0 top-0 left-0 mix-blend-color-dodge" : "absolute inset-0 top-0 left-0 w-full h-full"}
-            style={styleChosen == 2 ? style2 : styleChosen == 3 ? style3 : style4}
+          return (
+            <animated.div
+              key={obj.order}
+              className={
+                obj.usage && obj.usage.toLowerCase().includes("cd") ? "absolute inset-0 top-0 left-0 mix-blend-color-dodge" : "absolute inset-0 top-0 left-0 w-full h-full"
+              }
+              style={styleChosen == 2 ? style2 : styleChosen == 3 ? style3 : style4}
+            >
+              <Image src={(data as any)[obj.field]} fill alt={obj.usage} className={"w-full h-full object-contain"} priority={true} sizes={"50vw"} onLoad={handleImageLoad} />
+            </animated.div>
+          );
+        })}
+        <animated.div className={`absolute top-0 left-0 w-full h-full`} style={styleBorder}>
+          <Image src={data.borderUrl} fill alt="border" className="w-full h-full object-contain" priority={true} sizes={"50vw"} onLoad={handleImageLoad} />
+        </animated.div>
+        {navigate ? (
+          <div
+            className={`h-14 bottom-0 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition duration-300
+                  absolute w-full bg-opacity-5 bg-gradient-to-t from-black 
+                  rounded drop-shadow-lg 
+                  text-white p-5 flex justify-between
+              `}
           >
-            <Image src={(data as any)[obj.field]} fill alt={obj.usage} className={"w-full h-full object-contain"} sizes={"50vw"} onLoad={handleImageLoad} />
-          </animated.div>
-        );
-      })}
-      <animated.div className={`absolute top-0 left-0 w-full h-full`} style={styleBorder}>
-        <Image src={data.borderUrl} fill alt="border" className="w-full h-full object-contain" sizes={"50vw"} onLoad={handleImageLoad} />
-      </animated.div>
-      {navigate ? (
-        <div
-          className={`h-14 bottom-0 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition duration-300
-                absolute w-full bg-opacity-5 bg-gradient-to-t from-black 
-                 rounded drop-shadow-lg 
-                text-white p-5 flex justify-between
-            `}
-        >
-          <div className="absolute bottom-0 pb-4 group-hover">
-            <div className="font-semibold text-lg px-1">
-              <span className="font-header">{data?.name}</span>
-              <span className="block text-sm">{data?.title}</span>
+            <div className="absolute bottom-0 pb-4 group-hover">
+              <div className="font-semibold text-lg px-1">
+                <span className="font-header">{data?.name}</span>
+                <span className="block text-sm">{data?.title}</span>
+              </div>
             </div>
           </div>
-        </div>
-      ) : (
-        <></>
-      )}
+        ) : (
+          <></>
+        )}
+      </div>
     </div>
   );
 

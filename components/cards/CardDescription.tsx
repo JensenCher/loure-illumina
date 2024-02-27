@@ -20,7 +20,7 @@ const CardDescription: React.FC<CardDescriptionProps> = ({ data, height = "600px
         key={data._id}
         className={`border-t-2 border-t-slate-300 dark:border-t-slate-600 pt-8 text-black dark:text-white text-justify leading-loose relative ${pixel_h} w-full max-w-[500px]`}
       >
-        <SimpleBar forceVisible="y" autoHide={false} className={`leading-loose ${pixel_h} w-full pr-5`}>
+        <SimpleBar forceVisible="y" autoHide={false} className={`leading-loose ${pixel_h} w-full sm:pr-5`}>
           <PortableText value={data.description} />
         </SimpleBar>
       </div>

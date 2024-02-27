@@ -47,7 +47,7 @@ const CharacterPage = async ({ params }: { params: IParams }) => {
           <Paragraph className="max-w-2xl md:text-center md:text-2xl text-slate-700 dark:text-slate-300">
             {character.name}, {character.race}
           </Paragraph>
-          <div className="w-full max-w-[1000px] grid grid-cols-1 md:grid-cols-2 gap-5 pt-0 md:pt-10">
+          <div className="w-full max-w-[1000px] grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-16 pt-0 md:pt-10">
             <div key={character._id} className="flex justify-center items-center pt-5">
               {character.charUrl ? (
                 <div className="w-full h-full">

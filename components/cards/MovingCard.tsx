@@ -82,7 +82,7 @@ const MovingCard: React.FC<MovingCardProps> = ({ data, navigate = false, width =
     display: "inline-block",
     backfaceVisibility: "hidden" as any,
     // transform: isMoving ? `rotate(${rotation}deg)` : `rotate(0deg)`,
-    transform: isMoving ? `translate(${translate[0] * -1 * 0.08}px, ${translate[1] * -1 * 0.08}px)` : `translate(0px, 0px)`,
+    transform: isMoving ? `translate(${translate[0] * -1 * 0.075}px, ${translate[1] * -1 * 0.075}px)` : `translate(0px, 0px)`,
     transition: `transform 100ms`,
     config: {
       tension: 100,
@@ -179,7 +179,7 @@ const MovingCard: React.FC<MovingCardProps> = ({ data, navigate = false, width =
         </animated.div> */}
         {cardDivObjs.map((obj) => {
           let styleChosen = null;
-          if (obj.usage && obj.usage.toLowerCase().includes("cd")) {
+          if (obj.usage && obj.usage.toLowerCase().includes("mg")) {
             if (cdStyle == 0) {
               cdStyle = curStyle;
               change = true;

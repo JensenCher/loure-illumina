@@ -1,15 +1,5 @@
-import Image from "next/image";
-import { getCharacters } from "@/sanity/sanity-utils";
-import ClientOnly from "@/components/ClientOnly";
-import Container from "@/components/Container";
-import EmptyState from "@/components/EmptyState";
-import CharacterCard from "@/components/cards/CharacterCard";
-import LargeHeading from "@/components/ui/LargeHeading";
-import Paragraph from "@/ui/Paragraph";
-import Nav from "@/components/navbar/Nav";
-import MovingCard from "@/components/cards/MovingCard";
-import Link from "next/link";
 import CardSquare from "@/components/cards/CardSquare";
+import LargeHeading from "@/components/ui/LargeHeading";
 
 export default async function Team() {
   // const characters = await getCharacters();

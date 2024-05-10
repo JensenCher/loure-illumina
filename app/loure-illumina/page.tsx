@@ -2,7 +2,7 @@ import Container from "@/components/Container";
 import LargeHeading from "@/components/ui/LargeHeading";
 import { getCharacters } from "@/sanity/sanity-utils";
 import Paragraph from "@/ui/Paragraph";
-import CharacterContainer from "./_components/CharacterContainer";
+import CharacterContainer from "../../components/cards/CharacterContainer";
 
 export default async function TarotAngelusHome() {
   const characters = await getCharacters("title");

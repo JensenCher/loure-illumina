@@ -46,7 +46,7 @@ export default async function Home() {
           <div className="flex flex-row flex-wrap gap-5 items-center justify-center">
             {characters.map((character) => {
               return character.charUrl ? (
-                <MovingCard data={character} width="250px" height="410px" navigate={true}>
+                <MovingCard data={character} width="250px" height="410px" navigate={true} onImagesLoaded={() => {}}>
                   <h3 className="font-bold text-lg">Hello title</h3>
                   <p className="text-base">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur non explicabo nulla odit ex temporibus soluta eum repudiandae quis? Ipsam?

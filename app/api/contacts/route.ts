@@ -1,4 +1,3 @@
-import { NextApiRequest, NextApiResponse } from "next";
 import { createClient } from "next-sanity";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -11,7 +10,8 @@ const client = createClient({
 });
 
 export async function GET(req: Request) {
-  return new Response("Hi from routes");
+  return new NextResponse("Hi from routes");
+  // return new Response("Hi from routes");
 }
 
 // export async function POST(req: NextRequest, res: Response) {
@@ -27,32 +27,30 @@ export async function GET(req: Request) {
 
 export async function POST(req: NextRequest, res: NextResponse) {
   const { name, email, message } = await req.json();
-  console.log("name", name);
+  // console.log("name", name);
 
   try {
-    console.log("creating...");
+    // console.log("creating...");
     await client.create({
       _type: "contact",
       name: name,
       email: email,
       message: message,
     });
-    console.log("created :D");
+    // console.log("created :D");
   } catch (err) {
     console.log(err);
-    return new Error(
-      JSON.stringify({
-        message: "Couldn't submit Contact",
-        err,
-      })
-    );
+    // return new Error(
+    //   JSON.stringify({
+    //     message: "Couldn't submit Contact",
+    //     err,
+    //   })
+    // );
+    return NextResponse.json({ message: "Couldn't submit Contact", error: 'Internal Server Error' }, { status: 500 })
   }
-  console.log("Contact submitted.");
+  // console.log("Contact submitted.");
 
   // res.status(200).json({ message: "Contact Submitted!" });
-  return new Response(
-    JSON.stringify({
-      message: "Contact Submitted!",
-    })
-  );
+
+  return NextResponse.json({ message: "Contact Submitted!" });
 }

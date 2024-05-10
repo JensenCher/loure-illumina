@@ -9,9 +9,9 @@ const client = createClient({
   useCdn: process.env.NODE_ENV === "production",
 });
 
-export async function getCharacters(orderBy: string | null = null): Promise<Character[]> {
+export async function getCharacters(orderBy: string | null = null, show: boolean = true): Promise<Character[]> {
   return client.fetch(
-    groq`*[_type=="character"]{
+    groq`*[_type=="character" && show==${show}]{
         _id,
         _createdAt,
         order,

@@ -1,15 +1,8 @@
-import Image from "next/image";
-import { getCharacters } from "@/sanity/sanity-utils";
-import ClientOnly from "@/components/ClientOnly";
 import Container from "@/components/Container";
-import EmptyState from "@/components/EmptyState";
-import CharacterCard from "@/components/cards/CharacterCard";
 import LargeHeading from "@/components/ui/LargeHeading";
+import { getCharacters } from "@/sanity/sanity-utils";
 import Paragraph from "@/ui/Paragraph";
-import Nav from "@/components/navbar/Nav";
-import MovingCard from "@/components/cards/MovingCard";
-import Link from "next/link";
-import WhichCard from "@/components/cards/WhichCard";
+import CharacterContainer from "./_components/CharacterContainer";
 
 export default async function TarotAngelusHome() {
   const characters = await getCharacters("title");
@@ -41,22 +34,7 @@ export default async function TarotAngelusHome() {
       </div>
       <Container>
         <div className="p-3 max-w-[1280px] m-auto">
-          <div className="flex flex-row flex-wrap gap-5 items-center justify-center">
-            {characters.map((character) => {
-              if (character.show) {
-                return character.charUrl ? (
-                  // <MovingCard data={character} width="250px" height="410px" navigate={true}></MovingCard>
-                  <div className="w-[250px] h-[410px]">
-                    <WhichCard character={character} navigate={true} />
-                  </div>
-                ) : character.url ? (
-                  <CharacterCard data={character} />
-                ) : (
-                  <div className="object-cover h-full w-full bg-white group-hover:scale-110 transition" />
-                );
-              }
-            })}
-          </div>
+          <CharacterContainer characters={characters} />
         </div>
       </Container>
     </div>

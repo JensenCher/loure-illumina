@@ -1,5 +1,5 @@
 import "./globals.css";
-import { Cinzel, Cinzel_Decorative, Raleway } from "@next/font/google";
+import { Cinzel, Cinzel_Decorative, Raleway } from "next/font/google";
 import { cn } from "@/lib/utils";
 
 const cinzel_decorative = Cinzel_Decorative({
